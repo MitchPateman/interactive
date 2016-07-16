@@ -17,3 +17,8 @@
 canvas-container {
 	/*max-width: 100%*/
 }
+
+boat {
+	max-width: 10%;
+	position: absolute;
+}
