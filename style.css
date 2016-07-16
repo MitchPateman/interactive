@@ -18,7 +18,12 @@ canvas-container {
 	/*max-width: 100%*/
 }
 
-boat {
-	max-width: 10%;
+/*boat {
 	position: absolute;
+	visibility: hidden;
 }
+
+boat_left {
+	position: absolute;
+	visibility: hidden;
+}*/
