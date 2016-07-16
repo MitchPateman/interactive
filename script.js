@@ -1,3 +1,5 @@
+//Javascript
+//Variables
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var x = canvas.width/4; //define x and y starting point of boat
@@ -48,26 +50,33 @@ function drawBoatLeft() {
 
 function draw() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+//left or right last pressed?
 	if(rightLast == true){
 		drawBoat();
 	}
-	else { //left was pressed last
+	else{ //left was pressed last
 		ctx.clearRect(x, y, boat.width, boat.height);
 		drawBoatLeft();
 	}
-
-	if(rightPressed){
+//Move the boat left or right
+	if(rightPressed && x < canvas.width){
 		console.log("Right Was Pressed!");
 		rightLast = true;
-		x = x + speed;
+			x = x + speed;
 	}
-	else if (leftPressed){
+	else if (rightPressed && x >= (canvas.width)){
+		x = 0-boat.width
+	}
+	if (leftPressed && x > (0-boat.width)){
 		console.log("Left Was Pressed!");
 		rightLast = false;
 		ctx.clearRect(x, y, boat.width, boat.height);
 		drawBoatLeft();
 		x = x - speed;
+	}
+	else if (leftPressed && x <= (0-boat.width)){
+		x = canvas.width;
+		rightLast = false;
 	}
 
 requestAnimationFrame(draw); //sets the interval frame rate to browser automated value
