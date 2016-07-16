@@ -1,6 +1,6 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-var x = canvas.width/2; //define x and y starting point bottom center
+var x = canvas.width/2; //define x and y starting point
 var y = (canvas.height-(canvas.height*0.5));
 var rightPressed = false; //left or right gets pressed?
 var leftPressed = false;
@@ -28,7 +28,7 @@ function keyUpHandler(e) {
 
 function drawRectangle() {
 	ctx.beginPath();
-	ctx.rect(20, 40, 50, 50); //(topleftX, topleftY, width, height)
+	ctx.rect(x, y, 50, 50); //(topleftX, topleftY, width, height)
 	ctx.fillStyle = "#FF0000";
 	ctx.fill();
 	ctx.closePath();
@@ -40,9 +40,11 @@ function draw() {
 
 	if(rightPressed){
 		console.log("Right Was Pressed!");
+		x++;
 	}
 	else if (leftPressed){
 		console.log("Left Was Pressed!");
+		x--;
 	}
 requestAnimationFrame(draw); //sets the interval frame rate to browser automated value
 }
