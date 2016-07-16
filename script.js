@@ -1,14 +1,14 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-var x = canvas.width/4; //define x and y starting point
+var x = canvas.width/4; //define x and y starting point of boat
 var y = canvas.height/10;
 
 var rightPressed = false; //left or right gets pressed?
 var leftPressed = false;
-var leftLast = false;
 var rightLast = true;
 var speed = 5;
-//images
+
+//load images
 var boat = document.createElement('img'); // DOM HTMLImageElement
 boat.src = 'images/boat.png';
 boat.alt = 'boat';
@@ -38,6 +38,7 @@ function keyUpHandler(e) {
 	}
 }
 
+//drawBoat functions
 function drawBoat() {
 	ctx.drawImage(boat,x,y);
 }
@@ -51,7 +52,7 @@ function draw() {
 	if(rightLast == true){
 		drawBoat();
 	}
-	else {
+	else { //left was pressed last
 		ctx.clearRect(x, y, boat.width, boat.height);
 		drawBoatLeft();
 	}
@@ -59,7 +60,6 @@ function draw() {
 	if(rightPressed){
 		console.log("Right Was Pressed!");
 		rightLast = true;
-		//drawBoat();
 		x = x + speed;
 	}
 	else if (leftPressed){
@@ -72,6 +72,5 @@ function draw() {
 
 requestAnimationFrame(draw); //sets the interval frame rate to browser automated value
 }
-
 
 draw()
