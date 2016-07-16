@@ -1,7 +1,8 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-var x = canvas.width/2; //define x and y starting point
-var y = canvas.height/3.5;
+var x = canvas.width/10; //define x and y starting point
+var y = canvas.height/10;
+
 var rightPressed = false; //left or right gets pressed?
 var leftPressed = false;
 var speed = 5;
@@ -32,10 +33,10 @@ function keyUpHandler(e) {
 }
 
 function drawBoat() {
-	ctx.beginPath();
-	ctx.rect(x, y, 50, 50); //(topleftX, topleftY, width, height)
-	ctx.fillStyle = "#FF0000";
-	ctx.fill();
+	// ctx.beginPath();
+	// ctx.rect(x, y, 50, 50); //(topleftX, topleftY, width, height)
+	// ctx.fillStyle = "#FF0000";
+	// ctx.fill();
 
 	// document.body.appendChild(boat);
 	ctx.drawImage(boat,x,y);
