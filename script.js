@@ -58,7 +58,7 @@ function draw() {
 		ctx.clearRect(x, y, boat.width, boat.height);
 		drawBoatLeft();
 	}
-//Move the boat left or right
+//Move the boat left or right and wrap to other side when off screen
 	if(rightPressed && x < canvas.width){
 		console.log("Right Was Pressed!");
 		rightLast = true;
