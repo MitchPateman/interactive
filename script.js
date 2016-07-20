@@ -8,6 +8,7 @@ var y = canvas.height/10.2;
 
 var rightPressed = false; //left or right gets pressed?
 var leftPressed = false;
+var spacePressed = false; //space gets pressed?
 var rightLast = true;
 var speed = 4.5;
 
@@ -31,6 +32,8 @@ fishingLineLeft.alt = 'fishingLineLeft';
 //Event Listener for Key Up and Down
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("keypress", keyPressedHandler, false);
+
 
 //is the key held down or not?
 function keyDownHandler(e) {
@@ -47,6 +50,12 @@ function keyUpHandler(e) {
 	}
 	else if(e.keyCode == 37) {  //left key
 			leftPressed = false;
+	}
+}
+function keyPressedHandler(e) {
+	if(e.keyCode == 32) { //space bar key
+			spacePressed = true;
+			console.log("spacePressed Bitch");
 	}
 }
 
