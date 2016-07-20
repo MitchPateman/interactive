@@ -60,10 +60,10 @@ function drawBoatLeft() {
 
 //drawLine functions (x, y are relative to boat)
 function drawLine() {
-	ctx.drawImage(fishingLine,x+boat.width,y);
+	ctx.drawImage(fishingLine,x+(boat.width-82),y);
 }
 function drawLineLeft() {
-	ctx.drawImage(fishingLineLeft,x,y);
+	ctx.drawImage(fishingLineLeft,x+46,y);
 }
 
 //draw function
