@@ -17,7 +17,7 @@ var upPressed = false;
 var rightLast = true;
 var speed = 4.5;
 
-//load images
+//Load Images
 var boat = document.createElement('img'); // DOM HTMLImageElement
 boat.src = 'images/boat.png';
 boat.alt = 'boat';
@@ -39,7 +39,7 @@ fishingLineLeft.alt = 'fishingLineLeft';
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
-//is the key held down or not?
+//Event Handler = is the key held down or not?
 function keyDownHandler(e) {
 	if(e.keyCode == 39) {  //right arrow key
 			rightPressed = true;
@@ -69,6 +69,7 @@ function keyUpHandler(e) {
 	}
 }
 
+//DRAW IMAGES
 //drawBoat functions
 function drawBoat() {
 	ctx.drawImage(boat,x,y);
@@ -85,7 +86,7 @@ function drawLineLeft() {
 	ctx.drawImage(fishingLineLeft,lineLeftX,lineLeftY);
 }
 
-//draw function
+//DRAW FUNCTION = IFs
 function draw() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 //left or right last pressed?
@@ -124,7 +125,7 @@ function draw() {
 		lineX = canvas.width;
 		rightLast = false;
 	}
-	// When "down" or "up" bring the line down or up and stop it
+	// When "down" or "up" bring the line down or up and stop it at ceiling and floor
 	if (downPressed && rightLast == true && lineY < 303){
 		console.log("pressed down");
 		lineY = lineY + speed;
