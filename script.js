@@ -124,7 +124,7 @@ function draw() {
 		lineX = canvas.width;
 		rightLast = false;
 	}
-	// When "down" or "up" bring the line down or up
+	// When "down" or "up" bring the line down or up and stop it
 	if (downPressed && rightLast == true && lineY < 303){
 		console.log("pressed down");
 		lineY = lineY + speed;
