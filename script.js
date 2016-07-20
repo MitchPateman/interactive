@@ -2,10 +2,10 @@
 
 //Variables
 var canvas = document.getElementById("myCanvas");
-var elementLeft = canvas.offsetLeft; //offset used to find position of arrows on canvas
-var elementTop = canvas.offsetTop;
+// var elementLeft = canvas.offsetLeft; //offset used to find position of arrows on canvas
+// var elementTop = canvas.offsetTop;
 var ctx = canvas.getContext("2d");
-var elements = [];
+// var elements = [];
 
 var x = canvas.width/3; //define x and y starting point of boat
 var y = canvas.height/10.2;
@@ -58,22 +58,7 @@ downArrow.alt = 'downArrow';
 //Event Listener for Key Up and Down
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
-// canvas.addEventListener('click', function() { }, false);
-
-// Add event listener for `click` events.
-// elem.addEventListener('click', function(e) {
-// 		var x = e.pageX - elemLeft,
-// 				y = e.pageY - elemTop;
-//
-// 		// Collision detection between clicked offset and element.
-// 		elements.forEach(function(element) {
-// 				if (y > element.top && y < element.top + element.height
-// 						&& x > element.left && x < element.left + element.width) {
-// 						alert('clicked an element');
-// 				}
-// 		});
-//
-// }, false);
+canvas.addEventListener('click', function() { }, false);
 
 //Event Handler = is the key held down or not?
 function keyDownHandler(e) {
@@ -104,6 +89,16 @@ function keyUpHandler(e) {
 			upPressed = false;
 	}
 }
+// $('#myCanvas').click(function (e) {
+// 		var clickedX = e.pageX - this.offsetLeft;
+// 		var clickedY = e.pageY - this.offsetTop;
+//
+// 		for (var i = 0; i < circles.length; i++) {
+// 				if (clickedX < circles[i].right && clickedX > circles[i].left && clickedY > circles[i].top && clickedY < circles[i].bottom) {
+// 						alert ('clicked number ' + (i + 1));
+// 				}
+// 		}
+// });
 
 //DRAW IMAGES
 //drawBoat functions
@@ -125,19 +120,6 @@ function drawLineLeft() {
 //drawArrow functions
 function drawLeftArrow() {
 	ctx.drawImage(leftArrow,10,625,widthHeight,widthHeight);
-// 	elements.push({
-// 		color: transparent;
-// 		width: 150;
-// 		height: 150;
-// 		top: 475;
-// 		left: 10;
-// 	});
-//
-// 	// Render elements.
-// 	elements.forEach(function(element) {
-// 			context.fillStyle = element.color;
-// 			context.fillRect(element.left, element.top, element.width, element.height);
-// 	});​
 }
 function drawRightArrow() {
 	ctx.drawImage(rightArrow,110,625,widthHeight,widthHeight);
