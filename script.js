@@ -5,8 +5,8 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var x = canvas.width/3; //define x and y starting point of boat
 var y = canvas.height/10.2;
-var lineX = x + 389;
-var lineLeftX = x + 46;
+var lineX = x + 389; //Line is relative to where boat is
+var lineLeftX
 var lineY = y;
 var lineLeftY = y;
 
@@ -99,27 +99,27 @@ function draw() {
 		drawLineLeft();
 	}
 //Move the boat left or right and wrap to other side when off screen
-	if(rightPressed && x < canvas.width && lineY < 80){
+	if(rightPressed && x < canvas.width && lineY < 90){
 		rightLast = true;
-		lineX = x + 389; //stick to the boat
+		lineX = x + 389.5; //stick to the boat
 		x = x + speed;
 		lineX = lineX + speed;
 	}
-	else if (rightPressed && x >= (canvas.width) && lineY < 80){
+	else if (rightPressed && x >= (canvas.width) && lineY < 90){
 		x = 0-boat.width;
 		lineX = 0-boat.width;
 
 	}
-	if (leftPressed && x > (0-boat.width) && lineY < 80){
+	if (leftPressed && x > (0-boat.width) && lineY < 90){
 		rightLast = false;
-		lineLeftX = x + 46; //stick to the boat
+		lineLeftX = x + 45.5; //stick to the boat
 		ctx.clearRect(x, y, boat.width, boat.height);
 		drawBoatLeft();
 		drawLineLeft();
 		x = x - speed;
 		lineLeftX = lineLeftX - speed;
 	}
-	else if (leftPressed && x <= (0-boat.width) && lineY < 80){
+	else if (leftPressed && x <= (0-boat.width) && lineY < 90){
 		x = canvas.width;
 		lineX = canvas.width;
 		rightLast = false;
@@ -128,25 +128,25 @@ function draw() {
 	if (downPressed && rightLast == true && lineY < 303){
 		console.log("pressed down");
 		lineY = lineY + speed;
-		lineX = lineX + 0.276;
+		lineX = lineX + 0.2975;
 		lineLeftY = lineY;
 	}
 	else if (upPressed && rightLast == true && lineY > 74){
 		console.log("pressed up");
 		lineY = lineY - speed;
-		lineX = lineX - 0.276;
+		lineX = lineX - 0.2975;
 		lineLeftY = lineY;
 	}
 	if (downPressed && rightLast == false && lineY < 303){
 		console.log("pressed down Left was last");
 		lineLeftY= lineLeftY + speed;
-		lineLeftX = lineLeftX - 0.276;
+		lineLeftX = lineLeftX - 0.32;
 		lineY = lineLeftY;
 	}
 	else if (upPressed && rightLast == false && lineY > 74){
 		console.log("pressed up left was last");
 		lineLeftY = lineLeftY - speed;
-		lineLeftX = lineLeftX + 0.276;
+		lineLeftX = lineLeftX + 0.32;
 		lineY = lineLeftY;
 	}
 
