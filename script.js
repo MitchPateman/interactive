@@ -1,14 +1,15 @@
 //Javascript
+
 //Variables
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-var x = canvas.width/4; //define x and y starting point of boat
-var y = canvas.height/10;
+var x = canvas.width/3; //define x and y starting point of boat
+var y = canvas.height/10.2;
 
 var rightPressed = false; //left or right gets pressed?
 var leftPressed = false;
 var rightLast = true;
-var speed = 5;
+var speed = 4.5;
 
 //load images
 var boat = document.createElement('img'); // DOM HTMLImageElement
@@ -19,6 +20,15 @@ var boatLeft = document.createElement('img'); // DOM HTMLImageElement
 boatLeft.src = 'images/boat_left.png';
 boatLeft.alt = 'boatLeft';
 
+var fishingLine = document.createElement('img');
+fishingLine.src = 'images/fishing_line.png';
+fishingLine.alt = 'fishingLine';
+
+var fishingLineLeft = document.createElement('img');
+fishingLineLeft.src = 'images/fishing_line_left.png';
+fishingLineLeft.alt = 'fishingLineLeft';
+
+//Event Listener for Key Up and Down
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
@@ -48,15 +58,26 @@ function drawBoatLeft() {
 	ctx.drawImage(boatLeft,x,y);
 }
 
+//drawLine functions (x, y are relative to boat)
+function drawLine() {
+	ctx.drawImage(fishingLine,x,y);
+}
+function drawLineLeft() {
+	ctx.drawImage(fishingLineLeft,x,y);
+}
+
+//draw function
 function draw() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 //left or right last pressed?
 	if(rightLast == true){
 		drawBoat();
+		drawLine();
 	}
 	else{ //left was pressed last
 		ctx.clearRect(x, y, boat.width, boat.height);
 		drawBoatLeft();
+		drawLineLeft();
 	}
 //Move the boat left or right and wrap to other side when off screen
 	if(rightPressed && x < canvas.width){
@@ -72,6 +93,7 @@ function draw() {
 		rightLast = false;
 		ctx.clearRect(x, y, boat.width, boat.height);
 		drawBoatLeft();
+		drawLineLeft();
 		x = x - speed;
 	}
 	else if (leftPressed && x <= (0-boat.width)){

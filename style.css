@@ -8,22 +8,26 @@
 }
 
 #myCanvas {
-	background: rgb(200,200,200);
+	background:url(images/background.png);
+		background-repeat:no-repeat;
+		-webkit-background-size:cover;
+		-moz-background-size:cover;
+		-o-background-size:cover;
+		background-size:cover;
+		background-position:center;
 	display: block;
 	margin: auto;
 	max-width: 100%;
 }
 
 canvas-container {
-	/*max-width: 100%*/
+	max-width: 100%
 }
 
-/*boat {
+boat {
 	position: absolute;
-	visibility: hidden;
 }
 
 boat_left {
 	position: absolute;
-	visibility: hidden;
-}*/
+}
