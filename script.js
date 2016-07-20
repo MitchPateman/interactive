@@ -125,28 +125,29 @@ function draw() {
 		rightLast = false;
 	}
 	// When "down" or "up" bring the line down or up
-	if (downPressed && rightLast == true){
-	console.log("pressed down");
-	lineY = lineY + speed;
-	lineLeftY = lineY
+	if (downPressed && rightLast == true && lineY < 303){
+		console.log("pressed down");
+		lineY = lineY + speed;
+		lineX = lineX + 0.276;
+		lineLeftY = lineY;
 	}
-	else if (upPressed && rightLast == true){
-	console.log("pressed up");
-	lineY = lineY - speed;
-	lineLeftY = lineY
-
+	else if (upPressed && rightLast == true && lineY > 74){
+		console.log("pressed up");
+		lineY = lineY - speed;
+		lineX = lineX - 0.276;
+		lineLeftY = lineY;
 	}
-	if (downPressed && rightLast == false){
-	console.log("pressed down");
-	lineLeftY= lineLeftY + speed;
-	lineY = lineY
-
+	if (downPressed && rightLast == false && lineY < 303){
+		console.log("pressed down Left was last");
+		lineLeftY= lineLeftY + speed;
+		lineLeftX = lineLeftX - 0.276;
+		lineY = lineLeftY;
 	}
-	else if (upPressed && rightLast == false){
-	console.log("pressed up");
-	lineLeftY = lineLeftY - speed;
-	lineY = lineY
-
+	else if (upPressed && rightLast == false && lineY > 74){
+		console.log("pressed up left was last");
+		lineLeftY = lineLeftY - speed;
+		lineLeftX = lineLeftX + 0.276;
+		lineY = lineLeftY;
 	}
 
 requestAnimationFrame(draw); //sets the interval frame rate to browser automated value
