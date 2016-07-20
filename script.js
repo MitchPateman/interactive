@@ -99,18 +99,18 @@ function draw() {
 		drawLineLeft();
 	}
 //Move the boat left or right and wrap to other side when off screen
-	if(rightPressed && x < canvas.width){
+	if(rightPressed && x < canvas.width && lineY < 80){
 		rightLast = true;
 		lineX = x + 389; //stick to the boat
 		x = x + speed;
 		lineX = lineX + speed;
 	}
-	else if (rightPressed && x >= (canvas.width)){
+	else if (rightPressed && x >= (canvas.width) && lineY < 80){
 		x = 0-boat.width;
 		lineX = 0-boat.width;
 
 	}
-	if (leftPressed && x > (0-boat.width)){
+	if (leftPressed && x > (0-boat.width) && lineY < 80){
 		rightLast = false;
 		lineLeftX = x + 46; //stick to the boat
 		ctx.clearRect(x, y, boat.width, boat.height);
@@ -119,7 +119,7 @@ function draw() {
 		x = x - speed;
 		lineLeftX = lineLeftX - speed;
 	}
-	else if (leftPressed && x <= (0-boat.width)){
+	else if (leftPressed && x <= (0-boat.width) && lineY < 80){
 		x = canvas.width;
 		lineX = canvas.width;
 		rightLast = false;
