@@ -58,7 +58,20 @@ downArrow.alt = 'downArrow';
 //Event Listener for Key Up and Down
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
-canvas.addEventListener('click', function() { }, false);
+//canvas.addEventListener('click', function() { }, false);
+
+//On Click Event
+function initElement() {
+	var p = document.getElementById("myCanvas");
+	// note: showAlert(); or showAlert(param); will NOT work here.
+	// Must be a reference to a function name, not a function call.
+	p.onclick = function() {
+		alert("onclick Event detected!");
+	}
+};
+
+
+
 
 //Event Handler = is the key held down or not?
 function keyDownHandler(e) {
