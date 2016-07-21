@@ -9,8 +9,8 @@ var ctx = canvas.getContext("2d");
 
 var x = canvas.width/3; //define x and y starting point of boat
 var y = canvas.height/10.2;
-var lineX = x + 389; //Line is relative to where boat is
-var lineLeftX
+var lineX = x + 389; //Line is relative to where boat is (starting position)
+var lineLeftX //This gets value in the draw() function
 var lineY = y;
 var lineLeftY = y;
 
@@ -58,15 +58,16 @@ downArrow.alt = 'downArrow';
 //Event Listener for Key Up and Down
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
-//canvas.addEventListener('click', function() { }, false);
 
 //On Click Event
 function initElement() {
-	var p = document.getElementById("myCanvas");
+	canvas.addEventListener('click', function() { }, false);
 	// note: showAlert(); or showAlert(param); will NOT work here.
 	// Must be a reference to a function name, not a function call.
-	p.onclick = function() {
-		alert("onclick Event detected!");
+	canvas.onclick = function() {
+		clickX = event.pageX - canvas.offsetLeft;
+		clickY = event.pageY - canvas.offsetTop;
+		alert("X: " + clickX + " Y: " + clickY );
 	}
 };
 
