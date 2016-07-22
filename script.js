@@ -2,25 +2,22 @@
 
 //Variables
 var canvas = document.getElementById("myCanvas");
-// var elementLeft = canvas.offsetLeft; //offset used to find position of arrows on canvas
-// var elementTop = canvas.offsetTop;
 var ctx = canvas.getContext("2d");
-// var elements = [];
-
+//Boat Variables
 var x = canvas.width/3; //define x and y starting point of boat
 var y = canvas.height/10.2;
 var lineX = x + 389; //Line is relative to where boat is (starting position)
 var lineLeftX //This gets value in the draw() function
 var lineY = y;
 var lineLeftY = y;
-
+//Event Variables
 var rightPressed = false; //left or right gets pressed?
 var leftPressed = false;
 var downPressed = false; //down or up gets pressed?
 var upPressed = false;
 var rightLast = true;//The boat starts facing right
 var speed = 4.5;
-//positioning the arrows on canvas
+//Positioning the arrows on canvas
 //////MAKE THESE %, em, or rem??????
 var leftArrowX = 10;
 var rightArrowX = 110;
@@ -105,19 +102,15 @@ function mouseDownHandler(event) {
 	clickY = event.pageY - canvas.offsetTop;
 	console.log("X: " + clickX + " Y: " + clickY );
 			if (clickX > leftArrowX && clickX < (leftArrowX+widthHeight) && clickY > (leftRightArrowY)){
-				//alert("Left Clicked");
 				leftPressed = true;
 			}
 			else if (clickX > rightArrowX && clickX < (rightArrowX+widthHeight) && clickY > (leftRightArrowY)){
-				//alert("Right Clicked");
 				rightPressed = true;
 			}
 			else if (clickX > upDownArrowX && clickY > upArrowY && clickY < (upArrowY + widthHeight)) {
-				//alert("Up Clicked")
 				upPressed = true;
 			}
 			else if (clickX > upDownArrowX && clickY > downArrowY) {
-				//alert("Down Clicked")
 				downPressed = true;
 			};
 };
@@ -127,19 +120,15 @@ function mouseUpHandler(event) {
 	clickY = event.pageY - canvas.offsetTop;
 	console.log("X: " + clickX + " Y: " + clickY );
 			if (clickX > leftArrowX && clickX < (leftArrowX+widthHeight) && clickY > (leftRightArrowY)){
-				//alert("Left Clicked");
 				leftPressed = false;
 			}
 			else if (clickX > rightArrowX && clickX < (rightArrowX+widthHeight) && clickY > (leftRightArrowY)){
-				// alert("Right Clicked");
 				rightPressed = false;
 			}
 			else if (clickX > upDownArrowX && clickY > upArrowY && clickY < (upArrowY + widthHeight)) {
-				// alert("Up Clicked")
 				upPressed = false;
 			}
 			else if (clickX > upDownArrowX && clickY > downArrowY) {
-				// alert("Down Clicked")
 				downPressed = false;
 			};
 };
@@ -154,7 +143,6 @@ function drawBoat() {
 function drawBoatLeft() {
 	ctx.drawImage(boatLeft,x,y);
 }
-
 //drawLine functions (x, y are relative to boat)
 function drawLine() {
 	ctx.drawImage(fishingLine,lineX,lineY);
@@ -162,7 +150,6 @@ function drawLine() {
 function drawLineLeft() {
 	ctx.drawImage(fishingLineLeft,lineLeftX,lineLeftY);
 }
-
 //drawArrow functions
 function drawLeftArrow() {
 	ctx.drawImage(leftArrow,leftArrowX,leftRightArrowY,widthHeight,widthHeight);
