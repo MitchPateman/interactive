@@ -7,8 +7,8 @@ var ctx = canvas.getContext("2d");
 //scale the x,y coordinates for click events
 var scale = 1.00;
 var originalWindowWidth = window.innerWidth;
-var originalCanvasWidth = canvas.width
-//THIS IS NEEDED FOR RESIZE :S
+var originalCanvasWidth = canvas.width;
+//Needed for resize screen and finding click x/y
 function debounce(func, wait, immediate) {
 	var timeout;
 	return function() {
@@ -23,6 +23,7 @@ function debounce(func, wait, immediate) {
 		if (callNow) func.apply(context, args);
 	};
 };
+//scaling the x/y values of click
 var resizeCanvas = debounce(function() {
 	scale=window.innerWidth/originalWindowWidth;
 	$('#myCanvas').css('width',originalCanvasWidth*scale);
@@ -107,7 +108,7 @@ function keyDownHandler(e) {
 	else if(e.keyCode == 38) {  //up arrow key
 			upPressed = true;
 	}
-}
+};
 function keyUpHandler(e) {
 	if(e.keyCode == 39) {  //right key
 			rightPressed = false;
@@ -121,7 +122,7 @@ function keyUpHandler(e) {
 	else if(e.keyCode == 38) {  //up arrow key
 			upPressed = false;
 	}
-}
+};
 //On Click Event, console log the x + y coordinates of click
 function mouseDownHandler(event) {
 	clickX = (event.pageX - canvas.offsetLeft)/scale;
@@ -150,7 +151,7 @@ function mouseUpHandler(event) {
 				rightPressed = false;
 				upPressed = false;
 				downPressed = false;
-			}
+			};
 };
 
 
