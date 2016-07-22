@@ -15,9 +15,9 @@
 		-o-background-size:cover;
 		background-size:cover;
 		background-position:center;
-	display: block;
-	margin: auto;
-	max-width: 100%;
+		display: block;
+		margin: auto;
+		max-width: 100%;
 }
 
 canvas-container {

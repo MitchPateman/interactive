@@ -21,6 +21,7 @@ var upPressed = false;
 var rightLast = true;//The boat starts facing right
 var speed = 4.5;
 //positioning the arrows on canvas
+//////MAKE THESE %, em, or rem??????
 var leftArrowX = 10;
 var rightArrowX = 110;
 var upDownArrowX = 1300;
@@ -65,6 +66,9 @@ downArrow.alt = 'downArrow';
 //Event Listener for Key Up and Down
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+canvas.addEventListener("mousedown", mouseDownHandler, false);
+canvas.addEventListener("mouseup", mouseUpHandler, false);
+
 
 //Event Handler = is the key held down or not?
 function keyDownHandler(e) {
@@ -95,30 +99,52 @@ function keyUpHandler(e) {
 			upPressed = false;
 	}
 }
-
 //On Click Event, console log the x + y coordinates of click
-function initElement() {
-	// note: showAlert(); or showAlert(param); will NOT work here.
-	// Must be a reference to a function name, not a function call.
-	canvas.onclick = function() {
-		clickX = event.pageX - canvas.offsetLeft;
-		clickY = event.pageY - canvas.offsetTop;
-		console.log("X: " + clickX + " Y: " + clickY );
-
-		if (clickX > leftArrowX && clickX < (leftArrowX+widthHeight) && clickY > (leftRightArrowY)){
-			alert("Left Clicked");
-		}
-		else if (clickX > rightArrowX && clickX < (rightArrowX+widthHeight) && clickY > (leftRightArrowY)){
-			alert("Right Clicked");
-		}
-		else if (clickX > upDownArrowX && clickY > upArrowY && clickY < (upArrowY + widthHeight)) {
-			alert("Up Clicked")
-		}
-		else if (clickX > upDownArrowX && clickY > downArrowY) {
-			alert("Down Clicked")
-		};
-	};
+function mouseDownHandler(event) {
+	clickX = event.pageX - canvas.offsetLeft;
+	clickY = event.pageY - canvas.offsetTop;
+	console.log("X: " + clickX + " Y: " + clickY );
+			if (clickX > leftArrowX && clickX < (leftArrowX+widthHeight) && clickY > (leftRightArrowY)){
+				//alert("Left Clicked");
+				leftPressed = true;
+			}
+			else if (clickX > rightArrowX && clickX < (rightArrowX+widthHeight) && clickY > (leftRightArrowY)){
+				//alert("Right Clicked");
+				rightPressed = true;
+			}
+			else if (clickX > upDownArrowX && clickY > upArrowY && clickY < (upArrowY + widthHeight)) {
+				//alert("Up Clicked")
+				upPressed = true;
+			}
+			else if (clickX > upDownArrowX && clickY > downArrowY) {
+				//alert("Down Clicked")
+				downPressed = true;
+			};
 };
+
+function mouseUpHandler(event) {
+	clickX = event.pageX - canvas.offsetLeft;
+	clickY = event.pageY - canvas.offsetTop;
+	console.log("X: " + clickX + " Y: " + clickY );
+			if (clickX > leftArrowX && clickX < (leftArrowX+widthHeight) && clickY > (leftRightArrowY)){
+				//alert("Left Clicked");
+				leftPressed = false;
+			}
+			else if (clickX > rightArrowX && clickX < (rightArrowX+widthHeight) && clickY > (leftRightArrowY)){
+				// alert("Right Clicked");
+				rightPressed = false;
+			}
+			else if (clickX > upDownArrowX && clickY > upArrowY && clickY < (upArrowY + widthHeight)) {
+				// alert("Up Clicked")
+				upPressed = false;
+			}
+			else if (clickX > upDownArrowX && clickY > downArrowY) {
+				// alert("Down Clicked")
+				downPressed = false;
+			};
+};
+
+
 
 //DRAW IMAGES
 //drawBoat functions
