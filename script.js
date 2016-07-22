@@ -3,6 +3,32 @@
 //Variables
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
+
+//scale the x,y coordinates for click events
+var scale = 1.00;
+var originalWindowWidth = window.innerWidth;
+var originalCanvasWidth = canvas.width
+//THIS IS NEEDED FOR RESIZE :S
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+var resizeCanvas = debounce(function() {
+	scale=window.innerWidth/originalWindowWidth;
+	$('#myCanvas').css('width',originalCanvasWidth*scale);
+}, 250);
+window.addEventListener('resize', resizeCanvas);
+
 //Boat Variables
 var x = canvas.width/3; //define x and y starting point of boat
 var y = canvas.height/10.2;
@@ -98,8 +124,8 @@ function keyUpHandler(e) {
 }
 //On Click Event, console log the x + y coordinates of click
 function mouseDownHandler(event) {
-	clickX = event.pageX - canvas.offsetLeft;
-	clickY = event.pageY - canvas.offsetTop;
+	clickX = (event.pageX - canvas.offsetLeft)/scale;
+	clickY = (event.pageY - canvas.offsetTop)/scale;
 	console.log("X: " + clickX + " Y: " + clickY );
 			if (clickX > leftArrowX && clickX < (leftArrowX+widthHeight) && clickY > (leftRightArrowY)){
 				leftPressed = true;
@@ -118,19 +144,13 @@ function mouseDownHandler(event) {
 function mouseUpHandler(event) {
 	clickX = event.pageX - canvas.offsetLeft;
 	clickY = event.pageY - canvas.offsetTop;
-	console.log("X: " + clickX + " Y: " + clickY );
-			if (clickX > leftArrowX && clickX < (leftArrowX+widthHeight) && clickY > (leftRightArrowY)){
+	//console.log("X: " + clickX + " Y: " + clickY );
+			if (clickX > 0 && clickX < canvas.width){
 				leftPressed = false;
-			}
-			else if (clickX > rightArrowX && clickX < (rightArrowX+widthHeight) && clickY > (leftRightArrowY)){
 				rightPressed = false;
-			}
-			else if (clickX > upDownArrowX && clickY > upArrowY && clickY < (upArrowY + widthHeight)) {
 				upPressed = false;
-			}
-			else if (clickX > upDownArrowX && clickY > downArrowY) {
 				downPressed = false;
-			};
+			}
 };
 
 
