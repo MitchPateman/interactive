@@ -1,34 +1,8 @@
 //Javascript
 
-//Variables
+//canvas Variables
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-
-//scale the x,y coordinates for click events
-var scale = 1.00;
-var originalWindowWidth = window.innerWidth;
-var originalCanvasWidth = canvas.width;
-//Needed for resize screen and finding click x/y
-function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
-};
-//scaling the x/y values of click
-var resizeCanvas = debounce(function() {
-	scale=window.innerWidth/originalWindowWidth;
-	$('#myCanvas').css('width',originalCanvasWidth*scale);
-}, 250);
-window.addEventListener('resize', resizeCanvas);
 
 //Boat Variables
 var x = canvas.width/3; //define x and y starting point of boat
@@ -45,7 +19,6 @@ var upPressed = false;
 var rightLast = true;//The boat starts facing right
 var speed = 4.5;
 //Positioning the arrows on canvas
-//////MAKE THESE %, em, or rem??????
 var leftArrowX = 10;
 var rightArrowX = 110;
 var upDownArrowX = 1300;
