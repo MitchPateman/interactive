@@ -131,6 +131,7 @@ function mouseUpHandler(event) {
 };
 
 function touchDownHandler(event) {
+	event.stopPropagation()
 	var rect = canvas.getBoundingClientRect();
 	touchX = (event.pageX - rect.left) / (rect.right - rect.left) * canvas.width;
 	touchY = (event.pageY - rect.top) / (rect.bottom - rect.top) * canvas.height;
@@ -150,6 +151,7 @@ function touchDownHandler(event) {
 };
 
 function touchUpHandler(event) {
+	event.stopPropagation()
 	touchX = event.pageX - canvas.offsetLeft;
 	touchY = event.pageY - canvas.offsetTop;
 	//console.log("X: " + clickX + " Y: " + clickY );
