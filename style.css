@@ -19,7 +19,6 @@
 		margin: auto;
 		max-width: 100%;
 		width: 100vw;
-		-webkit-tap-highlight-color: transparent;
 }
 
 canvas-container {
