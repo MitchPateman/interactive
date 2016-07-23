@@ -131,7 +131,6 @@ function mouseUpHandler(event) {
 };
 
 function touchDownHandler(event) {
-	event.preventDefault();
 	var rect = canvas.getBoundingClientRect();
 	touchX = (event.pageX - rect.left) / (rect.right - rect.left) * canvas.width;
 	touchY = (event.pageY - rect.top) / (rect.bottom - rect.top) * canvas.height;
@@ -148,11 +147,12 @@ function touchDownHandler(event) {
 			else if (touchX > upDownArrowX && touchY > downArrowY) {
 				downPressed = true;
 			};
+			else {
+				event.preventDefault();
+			};
 };
 
 function touchUpHandler(event) {
-	event.preventDefault();
-
 	touchX = event.pageX - canvas.offsetLeft;
 	touchY = event.pageY - canvas.offsetTop;
 	//console.log("X: " + clickX + " Y: " + clickY );
@@ -161,6 +161,9 @@ function touchUpHandler(event) {
 				rightPressed = false;
 				upPressed = false;
 				downPressed = false;
+			};
+			else {
+				event.preventDefault();
 			};
 };
 
