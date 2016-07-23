@@ -1,8 +1,6 @@
 * {
 	padding: 0;
 	margin: 0;
-	-webkit-user-select: none; /* disable selection/Copy of UIWebView */
-	-webkit-touch-callout: none; /* disable the IOS popup when long-press on a link */
 	},
 *:before,
 *:after {
@@ -21,6 +19,8 @@
 		margin: auto;
 		max-width: 100%;
 		width: 100vw;
+		-webkit-user-select: none;
+
 }
 
 
