@@ -131,6 +131,7 @@ function mouseUpHandler(event) {
 };
 
 function touchDownHandler(event) {
+	event.preventDefault();
 	var rect = canvas.getBoundingClientRect();
 	touchX = (event.pageX - rect.left) / (rect.right - rect.left) * canvas.width;
 	touchY = (event.pageY - rect.top) / (rect.bottom - rect.top) * canvas.height;
