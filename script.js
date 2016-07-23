@@ -125,8 +125,9 @@ function keyUpHandler(e) {
 };
 //On Click Event, console log the x + y coordinates of click
 function mouseDownHandler(event) {
-	clickX = (event.pageX - canvas.offsetLeft)/scale;
-	clickY = (event.pageY - canvas.offsetTop)/scale;
+	var rect = canvas.getBoundingClientRect();
+	clickX = (event.pageX - rect.left) / (rect.right - rect.left) * canvas.width;
+	clickY = (event.pageY - rect.top) / (rect.bottom - rect.top) * canvas.height;
 	console.log("X: " + clickX + " Y: " + clickY );
 			if (clickX > leftArrowX && clickX < (leftArrowX+widthHeight) && clickY > (leftRightArrowY)){
 				leftPressed = true;
@@ -153,7 +154,6 @@ function mouseUpHandler(event) {
 				downPressed = false;
 			};
 };
-
 
 
 //DRAW IMAGES
@@ -230,25 +230,21 @@ function draw() {
 	}
 	// When "down" or "up" bring the line down or up and stop it at ceiling and floor
 	if (downPressed && rightLast == true && lineY < 303){
-		console.log("pressed down");
 		lineY = lineY + speed;
 		lineX = lineX + 0.2975;
 		lineLeftY = lineY;
 	}
 	else if (upPressed && rightLast == true && lineY > 74){
-		console.log("pressed up");
 		lineY = lineY - speed;
 		lineX = lineX - 0.2975;
 		lineLeftY = lineY;
 	}
 	if (downPressed && rightLast == false && lineY < 303){
-		console.log("pressed down Left was last");
 		lineLeftY= lineLeftY + speed;
 		lineLeftX = lineLeftX - 0.32;
 		lineY = lineLeftY;
 	}
 	else if (upPressed && rightLast == false && lineY > 74){
-		console.log("pressed up left was last");
 		lineLeftY = lineLeftY - speed;
 		lineLeftX = lineLeftX + 0.32;
 		lineY = lineLeftY;
