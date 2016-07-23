@@ -163,9 +163,6 @@ function touchUpHandler(event) {
 				upPressed = false;
 				downPressed = false;
 			};
-			else {
-				event.preventDefault();
-			};
 };
 
 
