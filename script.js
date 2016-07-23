@@ -124,7 +124,7 @@ function mouseUpHandler(event) {
 				leftPressed = false;
 				rightPressed = false;
 				upPressed = false;
-				downPressed = false;
+				downPressed = false; 
 			};
 };
 
