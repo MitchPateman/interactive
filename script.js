@@ -134,7 +134,11 @@ function touchDownHandler(event) {
 	var rect = canvas.getBoundingClientRect();
 	touchX = (event.pageX - rect.left) / (rect.right - rect.left) * canvas.width;
 	touchY = (event.pageY - rect.top) / (rect.bottom - rect.top) * canvas.height;
+<<<<<<< HEAD
 	console.log("X: " + touchX + " Y: " + touchY );
+=======
+	//console.log("X: " + touchX + " Y: " + touchY );
+>>>>>>> master
 			if (touchX > leftArrowX && touchX < (leftArrowX+widthHeight) && touchY > (leftRightArrowY)){
 				leftPressed = true;
 			}
@@ -147,17 +151,24 @@ function touchDownHandler(event) {
 			else if (touchX > upDownArrowX && touchY > downArrowY) {
 				downPressed = true;
 			};
+			else {
+				event.preventDefault();
+			};
 };
 
 function touchUpHandler(event) {
 	touchX = event.pageX - canvas.offsetLeft;
 	touchY = event.pageY - canvas.offsetTop;
 	//console.log("X: " + clickX + " Y: " + clickY );
-			if (touchX > 0 && touchX < canvas.width){
+
+			if (touchX > 0 && clickX < canvas.width){
 				leftPressed = false;
 				rightPressed = false;
 				upPressed = false;
 				downPressed = false;
+			};
+			else {
+				event.preventDefault();
 			};
 };
 
