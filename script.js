@@ -65,6 +65,8 @@ document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 canvas.addEventListener("mousedown", mouseDownHandler, false);
 canvas.addEventListener("mouseup", mouseUpHandler, false);
+canvas.addEventListener("touchstart", touchDownHandler, false);
+canvas.addEventListener("touchend", touchUpHandler, false);
 
 
 //Event Handler = is the key held down or not?
@@ -121,6 +123,37 @@ function mouseUpHandler(event) {
 	clickY = event.pageY - canvas.offsetTop;
 	//console.log("X: " + clickX + " Y: " + clickY );
 			if (clickX > 0 && clickX < canvas.width){
+				leftPressed = false;
+				rightPressed = false;
+				upPressed = false;
+				downPressed = false;
+			};
+};
+
+function touchDownHandler(event) {
+	var rect = canvas.getBoundingClientRect();
+	touchX = (event.pageX - rect.left) / (rect.right - rect.left) * canvas.width;
+	touchY = (event.pageY - rect.top) / (rect.bottom - rect.top) * canvas.height;
+	console.log("X: " + touchX + " Y: " + touchY );
+			if (touchX > leftArrowX && touchX < (leftArrowX+widthHeight) && touchY > (leftRightArrowY)){
+				leftPressed = true;
+			}
+			else if (touchX > rightArrowX && touchX < (rightArrowX+widthHeight) && touchY > (leftRightArrowY)){
+				rightPressed = true;
+			}
+			else if (touchX > upDownArrowX && touchY > upArrowY && touchY < (upArrowY + widthHeight)) {
+				upPressed = true;
+			}
+			else if (touchX > upDownArrowX && touchY > downArrowY) {
+				downPressed = true;
+			};
+};
+
+function touchUpHandler(event) {
+	touchX = event.pageX - canvas.offsetLeft;
+	touchY = event.pageY - canvas.offsetTop;
+	//console.log("X: " + clickX + " Y: " + clickY );
+			if (touchX > 0 && touchX < canvas.width){
 				leftPressed = false;
 				rightPressed = false;
 				upPressed = false;
