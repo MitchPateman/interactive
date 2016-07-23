@@ -151,6 +151,8 @@ function touchDownHandler(event) {
 };
 
 function touchUpHandler(event) {
+	event.preventDefault();
+
 	touchX = event.pageX - canvas.offsetLeft;
 	touchY = event.pageY - canvas.offsetTop;
 	//console.log("X: " + clickX + " Y: " + clickY );
