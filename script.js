@@ -147,9 +147,6 @@ function touchDownHandler(event) {
 			else if (touchX > upDownArrowX && touchY > downArrowY) {
 				downPressed = true;
 			};
-			else {
-				event.preventDefault();
-			};
 };
 
 function touchUpHandler(event) {
