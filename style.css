@@ -19,9 +19,11 @@
 		margin: auto;
 		max-width: 100%;
 		width: 100vw;
+<<<<<<< HEAD
 		-webkit-tap-highlight-color:rgba(0,0,0,0);
+=======
+>>>>>>> master
 }
-
 
 canvas-container {
 	max-width: 100%

@@ -151,7 +151,7 @@ function touchDownHandler(event) {
 function touchUpHandler(event) {
 	touchX = event.pageX - canvas.offsetLeft;
 	touchY = event.pageY - canvas.offsetTop;
-			if (touchX > 0 && touchX < canvas.width){
+			if (touchX > 0 && clickX < canvas.width){
 				leftPressed = false;
 				rightPressed = false;
 				upPressed = false;
