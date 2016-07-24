@@ -20,12 +20,12 @@ var rightLast = true;//The boat starts facing right
 var speed = 4.5;
 //Positioning the arrows on canvas
 var leftArrowX = 10;
-var rightArrowX = 110;
-var upDownArrowX = 1300;
-var leftRightArrowY = 625;
-var upArrowY = 525;
-var downArrowY = 625;
-var widthHeight = 128; //widthHeight for arrow keys
+var rightArrowX = 180;
+var upDownArrowX = 1225;
+var leftRightArrowY = 560;
+var upArrowY = 390;
+var downArrowY = 560;
+var widthHeight = 200; //widthHeight for arrow keys
 
 //Load Images
 var boat = document.createElement('img'); // DOM HTMLImageElement
