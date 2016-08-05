@@ -29,16 +29,28 @@ var widthHeight = 200; //widthHeight for arrow keys
 //Positioning the fish on the canvas
 var skillsX = 10;
 var skillsY = 400;
+var skX = 1; //Use these for movement, increment value
+var skY = 0.2;
 var educationX = 230;
-var educationY = 500;
+var educationY = 490;
+var edX = -0.25;
+var edY = -0.1;
 var experienceX = 470;
 var experienceY = 440;
+var exX = 2;
+var exY = 2;
 var summaryX = 680;
 var summaryY = 370;
+var suX = 2;
+var suY = 2;
 var projectsX = 845;
 var projectsY = 520;
+var prX = 2;
+var prY = 2;
 var linksX = 1010;
 var linksY = 450;
+var liX = 2;
+var liY = 2;
 
 //Load Images
 var boat = document.createElement('img'); // DOM HTMLImageElement
@@ -339,7 +351,10 @@ function draw() {
     lineLeftX = lineLeftX + 0.32;
     lineY = lineLeftY;
   }
-
+skillsX += skX;
+skillsY += skY;
+educationX += edX;
+educationY += edY;
 requestAnimationFrame(draw); //sets the interval frame rate to browser automated value
 }
 
