@@ -67,21 +67,34 @@ downArrow.src = 'images/down_arrow.png';
 
 var summaryRight = document.createElement('img');
 summaryRight.src = 'images/summary_fish.png';
+var summaryLeft = document.createElement('img');
+summaryLeft.src = 'images/summary_fish_left.png';
 
 var educationRight = document.createElement('img');
 educationRight.src = 'images/education_fish.png';
+var educationLeft = document.createElement('img');
+educationLeft.src = 'images/education_fish_left.png';
 
 var experienceRight = document.createElement('img');
 experienceRight.src = 'images/experience_fish.png';
+var experienceLeft = document.createElement('img');
+experienceLeft.src = 'images/experience_fish_left.png';
 
 var skillsRight = document.createElement('img');
 skillsRight.src = 'images/skills_fish.png';
+var skillsLeft = document.createElement('img');
+skillsLeft.src = 'images/skills_fish_left.png';
 
 var projectsRight = document.createElement('img');
 projectsRight.src = 'images/projects_fish.png';
+var projectsLeft = document.createElement('img');
+projectsLeft.src = 'images/projects_fish_left.png';
 
 var linksRight = document.createElement('img');
 linksRight.src = 'images/links_fish.png';
+var linksLeft = document.createElement('img');
+linksLeft.src = 'images/links_fish_left.png';
+
 
 //Event Listener for Key Up and Down
 document.addEventListener("keydown", keyDownHandler, false);
@@ -216,20 +229,43 @@ function drawDownArrow() {
 function drawSummaryFish() {
   ctx.drawImage(summaryRight,summaryX,summaryY, 230, 120);
 }
+function drawSummaryFishLeft() {
+  ctx.drawImage(summaryLeft,summaryX,summaryY, 230, 120);
+}
+
 function drawEducationFish() {
   ctx.drawImage(educationRight,educationX,educationY, 230, 120);
 }
+function drawEducationFishLeft() {
+  ctx.drawImage(educationLeft,educationX,educationY, 230, 120);
+}
+
 function drawExperienceFish() {
   ctx.drawImage(experienceRight,experienceX,experienceY, 230, 120);
 }
+function drawExperienceFishLeft() {
+  ctx.drawImage(experienceLeft,experienceX,experienceY, 230, 120);
+}
+
 function drawSkillsFish() {
   ctx.drawImage(skillsRight,skillsX,skillsY, 230, 120);
 }
+function drawSkillsFishLeft() {
+  ctx.drawImage(skillsLeft,skillsX,skillsY, 230, 120);
+}
+
 function drawProjectsFish() {
   ctx.drawImage(projectsRight,projectsX,projectsY, 230, 120);
 }
+function drawProjectsFishLeft() {
+  ctx.drawImage(projectsLeft,projectsX,projectsY, 230, 120);
+}
+
 function drawLinksFish() {
   ctx.drawImage(linksRight,linksX,linksY, 230, 120);
+}
+function drawLinksFishLeft() {
+  ctx.drawImage(linksLeft,linksX,linksY, 230, 120);
 }
 
 
@@ -242,10 +278,10 @@ function draw() {
   drawDownArrow();
 
   drawSkillsFish();
-  drawEducationFish();
+  drawEducationFishLeft();
   drawExperienceFish();
   drawSummaryFish();
-  drawProjectsFish();
+  drawProjectsFishLeft();
   drawLinksFish();
 //left or right last pressed?
   if(rightLast == true){
