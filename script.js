@@ -40,20 +40,24 @@ var edX = -0.25;
 var edY = -0.1;
 var experienceX = 470;
 var experienceY = 440;
-var exX = 2;
-var exY = 2;
+var experienceGoRight = true;
+var exX = 0.8;
+var exY = 0.4;
 var summaryX = 680;
 var summaryY = 370;
-var suX = 2;
-var suY = 2;
+var summaryGoRight = true;
+var suX = 1;
+var suY = 0.7;
 var projectsX = 845;
 var projectsY = 510;
-var prX = 2;
-var prY = 2;
+var projectsGoRight = true;
+var prX = 1.2;
+var prY = -0.3;
 var linksX = 1010;
 var linksY = 450;
-var liX = 2;
-var liY = 2;
+var linksGoRight = false;
+var liX = -1;
+var liY = -0.6;
 
 //Load Images
 var boat = document.createElement('img'); // DOM HTMLImageElement
@@ -364,10 +368,34 @@ else {
   drawEducationFishLeft();
 }
 
-drawExperienceFish();
-drawSummaryFish();
-drawProjectsFishLeft();
-drawLinksFish();
+if (experienceGoRight == true){
+  drawExperienceFish();
+}
+else {
+  drawExperienceFishLeft();
+}
+
+if (summaryGoRight == true){
+  drawSummaryFish();
+}
+else {
+  drawSummaryFishLeft();
+}
+
+if (projectsGoRight == true){
+  drawProjectsFish();
+}
+else {
+  drawProjectsFishLeft();
+}
+
+if (linksGoRight == true){
+  drawLinksFish();
+}
+else {
+  drawLinksFishLeft();
+}
+
 
 //MOVE FISH AND SWITCH DIRECTION
 //Move SKILLS Fish
@@ -407,9 +435,88 @@ else if (educationX < 180) {
 }
 else if (educationY > 510 || educationY < 370) {
   edY = -edY
-  educationX += edX;
+  educationY+= edY;
 }
 
+//Move EXPERIENCE Fish
+if (experienceX <= 500 && experienceX >= 315 && experienceY <= 510 && experienceY >= 370){
+  experienceX += exX;
+  experienceY += exY;
+}
+else if (experienceX > 500) {
+  exX = -exX;
+  experienceX += exX;
+  experienceGoRight = false;
+}
+else if (experienceX < 315) {
+  exX = -exX;
+  experienceX += exX;
+  experienceGoRight = true;
+}
+else if (experienceY > 510 || experienceY < 370) {
+  exY = -exY;
+  experienceY += exY;
+}
+
+//Move SUMMARY Fish
+if (summaryX <= 750 && summaryX >= 500 && summaryY <= 510 && summaryY >= 370){
+  summaryX += suX;
+  summaryY += suY;
+}
+else if (summaryX > 750) {
+  suX = -suX;
+  summaryX += suX;
+  summaryGoRight = false;
+}
+else if (summaryX < 500) {
+  suX = -suX;
+  summaryX += suX;
+  summaryGoRight = true;
+}
+else if (summaryY > 510 || summaryY < 370) {
+  suY = -suY;
+  summaryY += suY;
+}
+
+//Move PROJECTS Fish
+if (projectsX <= 900 && projectsX >= 740 && projectsY <= 510 && projectsY >= 370){
+  projectsX += prX;
+  projectsY += prY;
+}
+else if (projectsX > 900) {
+  prX = -prX;
+  projectsX += prX;
+  projectsGoRight = false;
+}
+else if (projectsX < 740) {
+  prX = -prX;
+  projectsX += prX;
+  projectsGoRight = true;
+}
+else if (projectsY > 510 || projectsY < 370) {
+  prY = -prY;
+  projectsY += prY;
+}
+
+//Move LINKS Fish
+if (linksX <= 1100 && linksX >= 890 && linksY <= 510 && linksY >= 370){
+  linksX += liX;
+  linksY += liY;
+}
+else if (linksX > 1100) {
+  liX = -liX
+  linksX += liX;
+  linksGoRight = false;
+}
+else if (linksX < 890) {
+  liX = -liX
+  linksX += liX;
+  linksGoRight = true;
+}
+else if (linksY > 510 || linksY < 370) {
+  liY = -liY
+  linksY += liY;
+}
 
 requestAnimationFrame(draw); //sets the interval frame rate to browser automated value
 }
