@@ -31,6 +31,7 @@ var skillsX = 10;
 var skillsY = 400;
 var skX = 1; //Use these for movement, increment value
 var skY = 0.2;
+var skillGoRight = true;
 var educationX = 230;
 var educationY = 490;
 var edX = -0.25;
@@ -44,7 +45,7 @@ var summaryY = 370;
 var suX = 2;
 var suY = 2;
 var projectsX = 845;
-var projectsY = 520;
+var projectsY = 510;
 var prX = 2;
 var prY = 2;
 var linksX = 1010;
@@ -289,12 +290,6 @@ function draw() {
   drawUpArrow();
   drawDownArrow();
 
-  drawSkillsFish();
-  drawEducationFishLeft();
-  drawExperienceFish();
-  drawSummaryFish();
-  drawProjectsFishLeft();
-  drawLinksFish();
 //left or right last pressed?
   if(rightLast == true){
     drawBoat();
@@ -351,8 +346,41 @@ function draw() {
     lineLeftX = lineLeftX + 0.32;
     lineY = lineLeftY;
   }
-skillsX += skX;
-skillsY += skY;
+
+
+if (skillGoRight == true){
+  drawSkillsFish();
+}
+else {
+  drawSkillsFishLeft();
+}
+
+drawEducationFishLeft();
+drawExperienceFish();
+drawSummaryFish();
+drawProjectsFishLeft();
+drawLinksFish();
+
+//Move Fish
+if (skillsX <= 200 && skillsX >= 10 && skillsY <= 510 && skillsY >= 370){
+  skillsX += skX;
+  skillsY += skY;
+}
+else if (skillsX > 200) {
+  skX = -skX;
+  skillsX += skX;
+  skillGoRight = false;
+}
+else if (skillsX < 10) {
+  skX = -skX;
+  skillsX += skX;
+  skillGoRight = true;
+}
+else if (skillsY > 510 || skillsY < 370) {
+  skY = -skY;
+  skillsY += skY;
+}
+
 educationX += edX;
 educationY += edY;
 requestAnimationFrame(draw); //sets the interval frame rate to browser automated value
