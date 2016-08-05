@@ -381,8 +381,8 @@ else if (skillsY > 510 || skillsY < 370) {
   skillsY += skY;
 }
 
-educationX += edX;
-educationY += edY;
+// educationX += edX;
+// educationY += edY;
 requestAnimationFrame(draw); //sets the interval frame rate to browser automated value
 }
 
