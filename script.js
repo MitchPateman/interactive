@@ -26,6 +26,7 @@ var leftRightArrowY = 560;
 var upArrowY = 390;
 var downArrowY = 560;
 var widthHeight = 200; //widthHeight for arrow keys
+
 //Positioning the fish on the canvas
 var skillsX = 10;
 var skillsY = 400;
@@ -34,6 +35,7 @@ var skY = 0.2;
 var skillGoRight = true;
 var educationX = 230;
 var educationY = 490;
+var educationGoRight = false;
 var edX = -0.25;
 var edY = -0.1;
 var experienceX = 470;
@@ -347,7 +349,7 @@ function draw() {
     lineY = lineLeftY;
   }
 
-
+//DRAW FISH
 if (skillGoRight == true){
   drawSkillsFish();
 }
@@ -355,13 +357,20 @@ else {
   drawSkillsFishLeft();
 }
 
-drawEducationFishLeft();
+if (educationGoRight == true){
+  drawEducationFish();
+}
+else {
+  drawEducationFishLeft();
+}
+
 drawExperienceFish();
 drawSummaryFish();
 drawProjectsFishLeft();
 drawLinksFish();
 
-//Move Fish
+//MOVE FISH AND SWITCH DIRECTION
+//Move SKILLS Fish
 if (skillsX <= 200 && skillsX >= 10 && skillsY <= 510 && skillsY >= 370){
   skillsX += skX;
   skillsY += skY;
@@ -381,8 +390,27 @@ else if (skillsY > 510 || skillsY < 370) {
   skillsY += skY;
 }
 
-educationX += edX;
-educationY += edY;
+//Move EDUCATION Fish
+if (educationX <= 333 && educationX >= 180 && educationY <= 510 && educationY >= 370){
+  educationX += edX;
+  educationY += edY;
+}
+else if (educationX > 333) {
+  edX = -edX
+  educationX += edX;
+  educationGoRight = false;
+}
+else if (educationX < 180) {
+  edX = -edX
+  educationX += edX;
+  educationGoRight = true;
+}
+else if (educationY > 510 || educationY < 370) {
+  edY = -edY
+  educationX += edX;
+}
+
+
 requestAnimationFrame(draw); //sets the interval frame rate to browser automated value
 }
 
