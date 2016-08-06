@@ -396,7 +396,6 @@ else {
   drawLinksFishLeft();
 }
 
-
 //MOVE FISH AND SWITCH DIRECTION
 //Move SKILLS Fish
 if (skillsX <= 200 && skillsX >= 10 && skillsY <= 510 && skillsY >= 370){
@@ -517,6 +516,7 @@ else if (linksY > 510 || linksY < 370) {
   liY = -liY
   linksY += liY;
 }
+
 
 requestAnimationFrame(draw); //sets the interval frame rate to browser automated value
 }
