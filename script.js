@@ -294,6 +294,7 @@ function drawLinksFishLeft() {
 }
 
 
+
 //DRAW FUNCTION = IFs
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -302,6 +303,170 @@ function draw() {
   drawUpArrow();
   drawDownArrow();
   drawBottomBar();
+
+  //DRAW FISH
+  if (skillGoRight == true){
+    drawSkillsFish();
+  }
+  else {
+    drawSkillsFishLeft();
+  }
+
+  if (educationGoRight == true){
+    drawEducationFish();
+  }
+  else {
+    drawEducationFishLeft();
+  }
+
+  if (experienceGoRight == true){
+    drawExperienceFish();
+  }
+  else {
+    drawExperienceFishLeft();
+  }
+
+  if (summaryGoRight == true){
+    drawSummaryFish();
+  }
+  else {
+    drawSummaryFishLeft();
+  }
+
+  if (projectsGoRight == true){
+    drawProjectsFish();
+  }
+  else {
+    drawProjectsFishLeft();
+  }
+
+  if (linksGoRight == true){
+    drawLinksFish();
+  }
+  else {
+    drawLinksFishLeft();
+  }
+
+  //MOVE FISH AND SWITCH DIRECTION
+  //Move SKILLS Fish
+  if (skillsX <= 200 && skillsX >= 10 && skillsY <= 510 && skillsY >= 370){
+    skillsX += skX;
+    skillsY += skY;
+  }
+  else if (skillsX > 200) {
+    skX = -skX;
+    skillsX += skX;
+    skillGoRight = false;
+  }
+  else if (skillsX < 10) {
+    skX = -skX;
+    skillsX += skX;
+    skillGoRight = true;
+  }
+  else if (skillsY > 510 || skillsY < 370) {
+    skY = -skY;
+    skillsY += skY;
+  }
+
+  //Move EDUCATION Fish
+  if (educationX <= 333 && educationX >= 180 && educationY <= 510 && educationY >= 370){
+    educationX += edX;
+    educationY += edY;
+  }
+  else if (educationX > 333) {
+    edX = -edX
+    educationX += edX;
+    educationGoRight = false;
+  }
+  else if (educationX < 180) {
+    edX = -edX
+    educationX += edX;
+    educationGoRight = true;
+  }
+  else if (educationY > 510 || educationY < 370) {
+    edY = -edY
+    educationY+= edY;
+  }
+
+  //Move EXPERIENCE Fish
+  if (experienceX <= 500 && experienceX >= 315 && experienceY <= 510 && experienceY >= 370){
+    experienceX += exX;
+    experienceY += exY;
+  }
+  else if (experienceX > 500) {
+    exX = -exX;
+    experienceX += exX;
+    experienceGoRight = false;
+  }
+  else if (experienceX < 315) {
+    exX = -exX;
+    experienceX += exX;
+    experienceGoRight = true;
+  }
+  else if (experienceY > 510 || experienceY < 370) {
+    exY = -exY;
+    experienceY += exY;
+  }
+
+  //Move SUMMARY Fish
+  if (summaryX <= 750 && summaryX >= 500 && summaryY <= 510 && summaryY >= 370){
+    summaryX += suX;
+    summaryY += suY;
+  }
+  else if (summaryX > 750) {
+    suX = -suX;
+    summaryX += suX;
+    summaryGoRight = false;
+  }
+  else if (summaryX < 500) {
+    suX = -suX;
+    summaryX += suX;
+    summaryGoRight = true;
+  }
+  else if (summaryY > 510 || summaryY < 370) {
+    suY = -suY;
+    summaryY += suY;
+  }
+
+  //Move PROJECTS Fish
+  if (projectsX <= 900 && projectsX >= 740 && projectsY <= 510 && projectsY >= 370){
+    projectsX += prX;
+    projectsY += prY;
+  }
+  else if (projectsX > 900) {
+    prX = -prX;
+    projectsX += prX;
+    projectsGoRight = false;
+  }
+  else if (projectsX < 740) {
+    prX = -prX;
+    projectsX += prX;
+    projectsGoRight = true;
+  }
+  else if (projectsY > 510 || projectsY < 370) {
+    prY = -prY;
+    projectsY += prY;
+  }
+
+  //Move LINKS Fish
+  if (linksX <= 1100 && linksX >= 890 && linksY <= 510 && linksY >= 370){
+    linksX += liX;
+    linksY += liY;
+  }
+  else if (linksX > 1100) {
+    liX = -liX
+    linksX += liX;
+    linksGoRight = false;
+  }
+  else if (linksX < 890) {
+    liX = -liX
+    linksX += liX;
+    linksGoRight = true;
+  }
+  else if (linksY > 510 || linksY < 370) {
+    liY = -liY
+    linksY += liY;
+  }
 
 //left or right last pressed?
   if(rightLast == true){
@@ -359,170 +524,6 @@ function draw() {
     lineLeftX = lineLeftX + 0.32;
     lineY = lineLeftY;
   }
-
-//DRAW FISH
-if (skillGoRight == true){
-  drawSkillsFish();
-}
-else {
-  drawSkillsFishLeft();
-}
-
-if (educationGoRight == true){
-  drawEducationFish();
-}
-else {
-  drawEducationFishLeft();
-}
-
-if (experienceGoRight == true){
-  drawExperienceFish();
-}
-else {
-  drawExperienceFishLeft();
-}
-
-if (summaryGoRight == true){
-  drawSummaryFish();
-}
-else {
-  drawSummaryFishLeft();
-}
-
-if (projectsGoRight == true){
-  drawProjectsFish();
-}
-else {
-  drawProjectsFishLeft();
-}
-
-if (linksGoRight == true){
-  drawLinksFish();
-}
-else {
-  drawLinksFishLeft();
-}
-
-//MOVE FISH AND SWITCH DIRECTION
-//Move SKILLS Fish
-if (skillsX <= 200 && skillsX >= 10 && skillsY <= 510 && skillsY >= 370){
-  skillsX += skX;
-  skillsY += skY;
-}
-else if (skillsX > 200) {
-  skX = -skX;
-  skillsX += skX;
-  skillGoRight = false;
-}
-else if (skillsX < 10) {
-  skX = -skX;
-  skillsX += skX;
-  skillGoRight = true;
-}
-else if (skillsY > 510 || skillsY < 370) {
-  skY = -skY;
-  skillsY += skY;
-}
-
-//Move EDUCATION Fish
-if (educationX <= 333 && educationX >= 180 && educationY <= 510 && educationY >= 370){
-  educationX += edX;
-  educationY += edY;
-}
-else if (educationX > 333) {
-  edX = -edX
-  educationX += edX;
-  educationGoRight = false;
-}
-else if (educationX < 180) {
-  edX = -edX
-  educationX += edX;
-  educationGoRight = true;
-}
-else if (educationY > 510 || educationY < 370) {
-  edY = -edY
-  educationY+= edY;
-}
-
-//Move EXPERIENCE Fish
-if (experienceX <= 500 && experienceX >= 315 && experienceY <= 510 && experienceY >= 370){
-  experienceX += exX;
-  experienceY += exY;
-}
-else if (experienceX > 500) {
-  exX = -exX;
-  experienceX += exX;
-  experienceGoRight = false;
-}
-else if (experienceX < 315) {
-  exX = -exX;
-  experienceX += exX;
-  experienceGoRight = true;
-}
-else if (experienceY > 510 || experienceY < 370) {
-  exY = -exY;
-  experienceY += exY;
-}
-
-//Move SUMMARY Fish
-if (summaryX <= 750 && summaryX >= 500 && summaryY <= 510 && summaryY >= 370){
-  summaryX += suX;
-  summaryY += suY;
-}
-else if (summaryX > 750) {
-  suX = -suX;
-  summaryX += suX;
-  summaryGoRight = false;
-}
-else if (summaryX < 500) {
-  suX = -suX;
-  summaryX += suX;
-  summaryGoRight = true;
-}
-else if (summaryY > 510 || summaryY < 370) {
-  suY = -suY;
-  summaryY += suY;
-}
-
-//Move PROJECTS Fish
-if (projectsX <= 900 && projectsX >= 740 && projectsY <= 510 && projectsY >= 370){
-  projectsX += prX;
-  projectsY += prY;
-}
-else if (projectsX > 900) {
-  prX = -prX;
-  projectsX += prX;
-  projectsGoRight = false;
-}
-else if (projectsX < 740) {
-  prX = -prX;
-  projectsX += prX;
-  projectsGoRight = true;
-}
-else if (projectsY > 510 || projectsY < 370) {
-  prY = -prY;
-  projectsY += prY;
-}
-
-//Move LINKS Fish
-if (linksX <= 1100 && linksX >= 890 && linksY <= 510 && linksY >= 370){
-  linksX += liX;
-  linksY += liY;
-}
-else if (linksX > 1100) {
-  liX = -liX
-  linksX += liX;
-  linksGoRight = false;
-}
-else if (linksX < 890) {
-  liX = -liX
-  linksX += liX;
-  linksGoRight = true;
-}
-else if (linksY > 510 || linksY < 370) {
-  liY = -liY
-  linksY += liY;
-}
 
 
 requestAnimationFrame(draw); //sets the interval frame rate to browser automated value
