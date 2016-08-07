@@ -255,42 +255,36 @@ function drawDownArrow() {
   ctx.drawImage(downArrow,upDownArrowX,downArrowY,widthHeight,widthHeight);
 }
 
-
 function drawSummaryFish() {
   ctx.drawImage(summaryRight,summaryX,summaryY, 230, 120);
 }
 function drawSummaryFishLeft() {
   ctx.drawImage(summaryLeft,summaryX,summaryY, 230, 120);
 }
-
 function drawEducationFish() {
   ctx.drawImage(educationRight,educationX,educationY, 230, 120);
 }
 function drawEducationFishLeft() {
   ctx.drawImage(educationLeft,educationX,educationY, 230, 120);
 }
-
 function drawExperienceFish() {
   ctx.drawImage(experienceRight,experienceX,experienceY, 230, 120);
 }
 function drawExperienceFishLeft() {
   ctx.drawImage(experienceLeft,experienceX,experienceY, 230, 120);
 }
-
 function drawSkillsFish() {
   ctx.drawImage(skillsRight,skillsX,skillsY, 230, 120);
 }
 function drawSkillsFishLeft() {
   ctx.drawImage(skillsLeft,skillsX,skillsY, 230, 120);
 }
-
 function drawProjectsFish() {
   ctx.drawImage(projectsRight,projectsX,projectsY, 230, 120);
 }
 function drawProjectsFishLeft() {
   ctx.drawImage(projectsLeft,projectsX,projectsY, 230, 120);
 }
-
 function drawLinksFish() {
   ctx.drawImage(linksRight,linksX,linksY, 230, 120);
 }
@@ -300,7 +294,7 @@ function drawLinksFishLeft() {
 
 
 
-//DRAW FUNCTION = IFs
+//MAIN DRAW FUNCTION
 function draw() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
