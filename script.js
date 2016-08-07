@@ -5,7 +5,7 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
 //Boat Variables
-var x = canvas.width/3; //define x and y starting point of boat
+var x = canvas.width/20; //define x and y starting point of boat
 var y = canvas.height/10.2;
 var lineX = x + 389; //Line is relative to where boat is (starting position)
 var lineLeftX //This gets value in the draw() function
@@ -60,6 +60,9 @@ var liX = -1;
 var liY = -0.6;
 
 //Load Images
+var bottomBar = document.createElement('img');
+bottomBar.src = 'images/bottom_bar_fishing.png'
+
 var boat = document.createElement('img'); // DOM HTMLImageElement
 boat.src = 'images/boat.png';
 
@@ -220,6 +223,9 @@ function touchUpHandler(event) {
 function drawBoat() {
   ctx.drawImage(boat,x,y);
 }
+function drawBottomBar() {
+  ctx.drawImage(bottomBar,540,-110,800,210);
+}
 function drawBoatLeft() {
   ctx.drawImage(boatLeft,x,y);
 }
@@ -295,6 +301,7 @@ function draw() {
   drawRightArrow();
   drawUpArrow();
   drawDownArrow();
+  drawBottomBar();
 
 //left or right last pressed?
   if(rightLast == true){
