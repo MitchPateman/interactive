@@ -46,8 +46,8 @@ var exY = 0.4;
 var summaryX = 680;
 var summaryY = 370;
 var summaryGoRight = true;
-var suX = 1;
-var suY = 0.7;
+var suX = 0.275;
+var suY = 0.17;
 var projectsX = 845;
 var projectsY = 510;
 var projectsGoRight = true;
@@ -56,8 +56,8 @@ var prY = -0.3;
 var linksX = 1010;
 var linksY = 450;
 var linksGoRight = false;
-var liX = -1;
-var liY = -0.6;
+var liX = -0.6;
+var liY = -0.3;
 
 //Load Images
 var bottomBar = document.createElement('img');
@@ -409,7 +409,7 @@ function draw() {
   }
 
   //Move SUMMARY Fish
-  if (summaryX <= 750 && summaryX >= 500 && summaryY <= 510 && summaryY >= 370){
+  if (summaryX <= 750 && summaryX >= 600 && summaryY <= 510 && summaryY >= 370){
     summaryX += suX;
     summaryY += suY;
   }
@@ -418,7 +418,7 @@ function draw() {
     summaryX += suX;
     summaryGoRight = false;
   }
-  else if (summaryX < 500) {
+  else if (summaryX < 600) {
     suX = -suX;
     summaryX += suX;
     summaryGoRight = true;
