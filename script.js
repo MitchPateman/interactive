@@ -11,6 +11,11 @@ var lineX = x + 389; //Line is relative to where boat is (starting position)
 var lineLeftX //This gets value in the draw() function
 var lineY = y;
 var lineLeftY = y;
+
+var hookX = lineX + 1.14;
+var hookLeftX; //This gets value in the draw() function
+var hookY = lineY + 263.6;
+
 //Event Variables
 var rightPressed = false; //left or right gets pressed?
 var leftPressed = false;
@@ -484,45 +489,58 @@ function draw() {
     lineX = x + 389.5; //stick to the boat
     x = x + speed;
     lineX = lineX + speed;
+    hookX = lineX + 1.14;
   }
   else if (rightPressed && x >= (canvas.width) && lineY < 90){
     x = 0-boat.width;
     lineX = 0-boat.width;
+    hookX = lineX + 1.14;
   }
   if (leftPressed && x > (0-boat.width) && lineY < 90){
     rightLast = false;
     lineLeftX = x + 45.5; //stick to the boat
+    hookLeftX = lineLeftX + 36.7;
     ctx.clearRect(x, y, boat.width, boat.height);
     drawBoatLeft();
     drawLineLeft();
     x = x - speed;
     lineLeftX = lineLeftX - speed;
+    hookLeftX = lineLeftX + 36.7;
   }
   else if (leftPressed && x <= (0-boat.width) && lineY < 90){
     x = canvas.width;
     lineX = canvas.width;
+    hookX = lineX + 1.14;
     rightLast = false;
   }
   // When "down" or "up" bring the line down or up and stop it at ceiling and floor
   if (downPressed && rightLast == true && lineY < 303){
     lineY = lineY + speed;
     lineX = lineX + 0.2975;
+    hookX = (lineX + 1.14) + 0.2975;
     lineLeftY = lineY;
+    hookY = lineY + 263.6
   }
   else if (upPressed && rightLast == true && lineY > 74){
     lineY = lineY - speed;
     lineX = lineX - 0.2975;
+    hookX = (lineX + 1.14) - 0.2975;
     lineLeftY = lineY;
+    hookY = lineLeftY + 263.6
   }
   if (downPressed && rightLast == false && lineY < 303){
     lineLeftY= lineLeftY + speed;
     lineLeftX = lineLeftX - 0.32;
+    hookLeftX = (lineLeftX + 36.7) - 0.32;
     lineY = lineLeftY;
+    hookY = lineY + 263.6
   }
   else if (upPressed && rightLast == false && lineY > 74){
     lineLeftY = lineLeftY - speed;
     lineLeftX = lineLeftX + 0.32;
+    hookLeftX = (lineLeftX + 36.7) + 0.32;
     lineY = lineLeftY;
+    hookY = lineY + 263.6
   }
 
 
