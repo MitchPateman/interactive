@@ -302,6 +302,7 @@ function drawLinksFishLeft() {
 
 //DRAW FUNCTION = IFs
 function draw() {
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawLeftArrow();
   drawRightArrow();
@@ -542,9 +543,30 @@ function draw() {
     lineY = lineLeftY;
     hookY = lineY + 263.6
   }
-
+//HOOK A FISH!
+  if (upPressed == true){
+    if (upPressed == true && hookX >= skillsX && hookX < skillsX + 230 && hookY >= skillsY && hookY < skillsY + 80
+        || hookLeftX >= skillsX && hookLeftX < skillsX + 230 && hookY >= skillsY && hookY < skillsY + 80){
+      console.log ("skills fish caught");
+      skX = 0;
+      skY = 0;
+    }
+    else if (upPressed == true && hookX >= educationX && hookX < educationX + 230 && hookY >= educationY && hookY < educationY + 80
+        || hookLeftX >= educationX && hookLeftX < educationX + 230 && hookY >= educationY && hookY < educationY + 80){
+      console.log ("education fish caught");
+      edX = 0;
+      edY = 0;
+    }
+    else if (upPressed == true && hookX >= linksX && hookX < linksX + 230 && hookY >= linksY && hookY < linksY + 80
+        || hookLeftX >= linksX && hookLeftX < linksX + 230 && hookY >= linksY && hookY < linksY + 80){
+      console.log ("links fish caught");
+      liX = 0;
+      liY = 0;
+    }
+  }
 
 requestAnimationFrame(draw); //sets the interval frame rate to browser automated value
-}
+};
+
 
 draw();
