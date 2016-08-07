@@ -543,19 +543,19 @@ function draw() {
         || hookLeftX >= skillsX && hookLeftX < skillsX + 230 && hookY >= skillsY && hookY < skillsY + 80){
       console.log ("skills fish caught");
       skX = 0;
-      skY = 0;
+      skY -= 1;
     }
     else if (upPressed == true && hookX >= educationX && hookX < educationX + 230 && hookY >= educationY && hookY < educationY + 80
         || hookLeftX >= educationX && hookLeftX < educationX + 230 && hookY >= educationY && hookY < educationY + 80){
       console.log ("education fish caught");
       edX = 0;
-      edY = 0;
+      edY -= 1;
     }
     else if (upPressed == true && hookX >= linksX && hookX < linksX + 230 && hookY >= linksY && hookY < linksY + 80
         || hookLeftX >= linksX && hookLeftX < linksX + 230 && hookY >= linksY && hookY < linksY + 80){
       console.log ("links fish caught");
       liX = 0;
-      liY = 0;
+      liY -= 1;
     }
   }
 
