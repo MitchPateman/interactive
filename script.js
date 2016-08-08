@@ -1,4 +1,5 @@
 //Javascript
+// ****** THIS NEEDS MAJOR REFACTORING ******
 
 //canvas Variables
 var canvas = document.getElementById("myCanvas");
