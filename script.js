@@ -15,7 +15,6 @@ var lineLeftY = y;
 var hookX = lineX + 1.14;
 var hookLeftX; //This gets value in the draw() function
 var hookY = lineY + 263.6;
-var skHooked = false;
 
 //Event Variables
 var rightPressed = false; //left or right gets pressed?
@@ -39,31 +38,38 @@ var skillsY = 400;
 var skX = 1; //Use these for movement, increment value
 var skY = 0.2;
 var skillGoRight = true;
+var skHooked = false;
 var educationX = 230;
 var educationY = 490;
 var educationGoRight = false;
 var edX = -0.25;
 var edY = -0.1;
+var edHooked = false;
 var experienceX = 470;
 var experienceY = 440;
 var experienceGoRight = true;
 var exX = 0.8;
 var exY = 0.4;
+var exHooked = false;
 var summaryX = 680;
 var summaryY = 370;
 var summaryGoRight = true;
 var suX = 0.275;
 var suY = 0.17;
+var suHooked = false;
 var projectsX = 845;
 var projectsY = 510;
 var projectsGoRight = true;
 var prX = 1.2;
 var prY = -0.3;
+var prHooked = false;
 var linksX = 1010;
 var linksY = 450;
 var linksGoRight = false;
 var liX = -0.6;
 var liY = -0.3;
+var liHooked = false;
+
 
 //Load Images
 var bottomBar = document.createElement('img');
@@ -348,23 +354,78 @@ function draw() {
     drawLinksFishLeft();
   }
 
-  //MOVE FISH AND SWITCH DIRECTION
+  //CHECK IF HOOKED or Move the fish is below
   //Move SKILLS Fish
-  if (skHooked == true){
+  if (skHooked == true && edHooked == false){
     skX = 0;
     skY = 0;
     if (skillsY > 287.1294117647059){
       skillsY = hookY - 50;
     }
-    else if (skillsY > 0 && skillsY <= 287.1294117647059){
-      skillsY = -32;
-      skillsX = 0;
-    }
     else if (skillsX > -1){
       alert("SKILLS FISH CAUGHT");
-      skillsX -= 1;
+      skillsX = 10;
+      skillsY = 400;
+      skHooked = false;
+      upPressed = false;
+      if (skillGoRight == true){
+        skX = 1;
+        skY = 0.2;
+      }
+      else {
+        skX = -1;
+        skY = -0.2;
+      }
     }
   }
+  else if (edHooked == true){
+    edX = 0;
+    edY = 0;
+    if (educationY > 287.1294117647059){
+      educationY = hookY - 50;
+    }
+    else if (educationX > -1){
+      alert("EDUCATION FISH CAUGHT");
+      educationX = 230;
+      educationY = 490;
+      edHooked = false;
+      skHooked = false;
+      upPressed = false;
+      if (educationGoRight == true){
+        edX = 0.25;
+        edY = 0.1;
+      }
+      else {
+        edX = -0.25;
+        edY = -0.1;
+      }
+
+    }
+  }
+  else if (liHooked == true){
+    liX = 0;
+    liY = 0;
+    if (linksY > 287.1294117647059){
+      linksY = hookY - 50;
+    }
+    else if (linksX > -1){
+      alert("LINKS FISH CAUGHT");
+      linksX = 1010;
+      linksY = 450;
+      liHooked = false;
+      upPressed = false;
+      if (linksGoRight == true){
+        liX = 0.6;
+        liY = 0.3;
+      }
+      else {
+        liX = -0.6;
+        liY = -0.3;
+      }
+    }
+  }
+
+  // MOVE FISH AND SWITCH DIRECTION
   else if (skHooked == false && skillsX <= 200 && skillsX >= 10 && skillsY <= 510 && skillsY >= 370){
     skillsX += skX;
     skillsY += skY;
@@ -386,21 +447,22 @@ function draw() {
 
 
   //Move EDUCATION Fish
-  if (educationX <= 333 && educationX >= 180 && educationY <= 510 && educationY >= 370){
+
+  if (edHooked == false && educationX <= 333 && educationX >= 180 && educationY <= 510 && educationY >= 370){
     educationX += edX;
     educationY += edY;
   }
-  else if (educationX > 333) {
+  else if (edHooked == false && educationX > 333) {
     edX = -edX
     educationX += edX;
     educationGoRight = false;
   }
-  else if (educationX < 180) {
+  else if (edHooked == false && educationX < 180) {
     edX = -edX
     educationX += edX;
     educationGoRight = true;
   }
-  else if (educationY > 510 || educationY < 370) {
+  else if (edHooked == false && educationY > 510 || educationY < 370) {
     edY = -edY
     educationY+= edY;
   }
@@ -555,26 +617,24 @@ function draw() {
     hookY = lineY + 263.6
   }
 //HOOK A FISH!
-if (upPressed == true){
-  if (hookX >= skillsX && hookX < skillsX + 230 && hookY >= skillsY && hookY < skillsY + 80
-      || hookLeftX >= skillsX && hookLeftX < skillsX + 230 && hookY >= skillsY && hookY < skillsY + 80){
-    console.log ("skills fish caught");
-    skHooked = true;
-  }
+  if (upPressed == true){
+    if (hookX >= skillsX && hookX < skillsX + 230 && hookY >= skillsY && hookY < skillsY + 80
+        || hookLeftX >= skillsX && hookLeftX < skillsX + 230 && hookY >= skillsY && hookY < skillsY + 80){
+      console.log ("skills fish caught");
+      skHooked = true;
+    }
 
-    // else if (upPressed == true && hookX >= educationX && hookX < educationX + 230 && hookY >= educationY && hookY < educationY + 80
-    //     || hookLeftX >= educationX && hookLeftX < educationX + 230 && hookY >= educationY && hookY < educationY + 80){
-    //   console.log ("education fish caught");
-    //   edX = 0;
-    //   edY -= speed;
-    // }
-    // else if (upPressed == true && hookX >= linksX && hookX < linksX + 230 && hookY >= linksY && hookY < linksY + 80
-    //     || hookLeftX >= linksX && hookLeftX < linksX + 230 && hookY >= linksY && hookY < linksY + 80){
-    //   console.log ("links fish caught");
-    //   liX = 0;
-    //   liY -= speed;
-    // }
-  }
+    if (upPressed == true && hookX >= educationX && hookX < educationX + 230 && hookY >= educationY && hookY < educationY + 80
+        || hookLeftX >= educationX && hookLeftX < educationX + 230 && hookY >= educationY && hookY < educationY + 80){
+      console.log ("education fish caught");
+      edHooked = true;
+    }
+    else if (upPressed == true && hookX >= linksX && hookX < linksX + 230 && hookY >= linksY && hookY < linksY + 80
+        || hookLeftX >= linksX && hookLeftX < linksX + 230 && hookY >= linksY && hookY < linksY + 80){
+      console.log ("links fish caught");
+      liHooked = true;
+    }
+  };
 
 requestAnimationFrame(draw); //sets the interval frame rate to browser automated value
 };
