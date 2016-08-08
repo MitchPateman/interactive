@@ -357,7 +357,7 @@ function draw() {
         skHooked = true;
       }
       if (rightLast == true && upPressed == true && hookX >= educationX && hookX < educationX + 200 && hookY >= educationY && hookY < educationY + 100
-          || upPressed == true && hookLeftX >= educationX && hookLeftX < educationX + 200 && hookY >= educationY && hookY < educationY + 100){
+          || rightLast == false && upPressed == true && hookLeftX >= educationX && hookLeftX < educationX + 200 && hookY >= educationY && hookY < educationY + 100){
         console.log ("education fish caught");
         edHooked = true;
       }
