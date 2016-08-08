@@ -35,15 +35,15 @@ var widthHeight = 200; //widthHeight for arrow keys
 //Positioning the fish on the canvas
 var skillsX = 10;
 var skillsY = 400;
-var skX = 1; //Use these for movement, increment value
+var skX = 0.5; //Use these for movement, increment value
 var skY = 0.2;
 var skillGoRight = true;
 var skHooked = false;
-var educationX = 230;
+var educationX = 272;
 var educationY = 490;
 var educationGoRight = false;
 var edX = -0.25;
-var edY = -0.1;
+var edY = -0.7;
 var edHooked = false;
 var experienceX = 470;
 var experienceY = 440;
@@ -354,57 +354,153 @@ function draw() {
     drawLinksFishLeft();
   }
 
+
   //CHECK IF HOOKED or Move the fish is below
   //Move SKILLS Fish
-  if (skHooked == true && edHooked == false){
+  if (skHooked == true){
     skX = 0;
     skY = 0;
+    edHooked = false;
+    liHooked = false;
+    exHooked = false;
+    suHooked = false;
+    prHooked = false;
     if (skillsY > 287.1294117647059){
       skillsY = hookY - 50;
     }
     else if (skillsX > -1){
       alert("SKILLS FISH CAUGHT");
-      skillsX = 10;
+      skillsX = -40;
       skillsY = 400;
       skHooked = false;
       upPressed = false;
       if (skillGoRight == true){
-        skX = 1;
+        skX = 0.5;
         skY = 0.2;
       }
       else {
-        skX = -1;
+        skX = -0.5;
         skY = -0.2;
       }
     }
   }
-  else if (edHooked == true){
+  if (edHooked == true){
     edX = 0;
     edY = 0;
+    skHooked = false;
+    exHooked = false;
+    liHooked = false;
+    suHooked = false;
+    prHooked = false;
     if (educationY > 287.1294117647059){
       educationY = hookY - 50;
     }
     else if (educationX > -1){
       alert("EDUCATION FISH CAUGHT");
-      educationX = 230;
+      educationX = 275;
       educationY = 490;
       edHooked = false;
-      skHooked = false;
       upPressed = false;
       if (educationGoRight == true){
         edX = 0.25;
-        edY = 0.1;
+        edY = 0.7;
       }
       else {
         edX = -0.25;
-        edY = -0.1;
+        edY = -0.7;
       }
-
     }
   }
-  else if (liHooked == true){
+  if (exHooked == true){
+    exX = 0;
+    exY = 0;
+    edHooked = false;
+    liHooked = false;
+    skHooked = false;
+    suHooked = false;
+    prHooked = false;
+    if (experienceY > 287.1294117647059){
+      experienceY = hookY - 50;
+    }
+    else if (experienceX > -1){
+
+      alert("EXPERIENCE FISH CAUGHT");
+      experienceX = 470;
+      experienceY = 440;
+      exHooked = false;
+      upPressed = false;
+      if (experienceGoRight == true){
+        exX = 0.8;
+        exY = 0.4;
+      }
+      else {
+        exX = -0.8;
+        exY = -0.4;
+      }
+    }
+  }
+  if (suHooked == true){
+    suX = 0;
+    suY = 0;
+    edHooked = false;
+    skHooked = false;
+    exHooked = false;
+    liHooked = false;
+    prHooked = false;
+    if (summaryY > 287.1294117647059){
+      summaryY = hookY - 50;
+    }
+    else if (summaryX > -1){
+      alert("SUMMARY FISH CAUGHT");
+      summaryX = 680;
+      summaryY = 370;
+      suHooked = false;
+      upPressed = false;
+      if (summaryGoRight == true){
+        suX = 0.275;
+        suY = 0.17;
+      }
+      else {
+        suX = -0.275;
+        suY = -0.17;
+      }
+    }
+  }
+  if (prHooked == true){
+    prX = 0;
+    prY = 0;
+    edHooked = false;
+    skHooked = false;
+    exHooked = false;
+    liHooked = false;
+    suHooked = false;
+    if (projectsY > 287.1294117647059){
+      projectsY = hookY - 50;
+    }
+    else if (projectsX > -1){
+      alert("PROJECTS FISH CAUGHT");
+      projectsX = 845;
+      projectsY = 510;
+      prHooked = false;
+      upPressed = false;
+      if (projectsGoRight == true){
+        prX = 1.2;
+        prY = -0.3;
+      }
+      else {
+        prX = -1.2;
+        prY = 0.3;
+      }
+    }
+  }
+  if (liHooked == true){
     liX = 0;
     liY = 0;
+    edHooked = false;
+    skHooked = false;
+    exHooked = false;
+    suHooked = false;
+    prHooked = false;
     if (linksY > 287.1294117647059){
       linksY = hookY - 50;
     }
@@ -426,16 +522,17 @@ function draw() {
   }
 
   // MOVE FISH AND SWITCH DIRECTION
-  else if (skHooked == false && skillsX <= 200 && skillsX >= 10 && skillsY <= 510 && skillsY >= 370){
+  //Skills FISH
+  else if (skHooked == false && skillsX <= 50 && skillsX >= -40 && skillsY <= 510 && skillsY >= 370){
     skillsX += skX;
     skillsY += skY;
   }
-  else if (skHooked == false && skillsX > 200) {
+  else if (skHooked == false && skillsX > 50) {
     skX = -skX;
     skillsX += skX;
     skillGoRight = false;
   }
-  else if (skHooked == false && skillsX < 10) {
+  else if (skHooked == false && skillsX < -40) {
     skX = -skX;
     skillsX += skX;
     skillGoRight = true;
@@ -445,19 +542,17 @@ function draw() {
     skillsY += skY;
   }
 
-
   //Move EDUCATION Fish
-
-  if (edHooked == false && educationX <= 333 && educationX >= 180 && educationY <= 510 && educationY >= 370){
+  if (edHooked == false && educationX <= 300 && educationX >= 250 && educationY <= 510 && educationY >= 370){
     educationX += edX;
     educationY += edY;
   }
-  else if (edHooked == false && educationX > 333) {
+  else if (edHooked == false && educationX > 300) {
     edX = -edX
     educationX += edX;
     educationGoRight = false;
   }
-  else if (edHooked == false && educationX < 180) {
+  else if (edHooked == false && educationX < 250) {
     edX = -edX
     educationX += edX;
     educationGoRight = true;
@@ -468,81 +563,81 @@ function draw() {
   }
 
   //Move EXPERIENCE Fish
-  if (experienceX <= 500 && experienceX >= 315 && experienceY <= 510 && experienceY >= 370){
+  if (exHooked == false && experienceX <= 500 && experienceX >= 315 && experienceY <= 510 && experienceY >= 370){
     experienceX += exX;
     experienceY += exY;
   }
-  else if (experienceX > 500) {
+  else if (exHooked == false && experienceX > 500) {
     exX = -exX;
     experienceX += exX;
     experienceGoRight = false;
   }
-  else if (experienceX < 315) {
+  else if (exHooked == false && experienceX < 315) {
     exX = -exX;
     experienceX += exX;
     experienceGoRight = true;
   }
-  else if (experienceY > 510 || experienceY < 370) {
+  else if (exHooked == false && experienceY > 510 || experienceY < 370) {
     exY = -exY;
     experienceY += exY;
   }
 
   //Move SUMMARY Fish
-  if (summaryX <= 750 && summaryX >= 600 && summaryY <= 510 && summaryY >= 370){
+  if (suHooked == false && summaryX <= 750 && summaryX >= 600 && summaryY <= 510 && summaryY >= 370){
     summaryX += suX;
     summaryY += suY;
   }
-  else if (summaryX > 750) {
+  else if (suHooked == false && summaryX > 750) {
     suX = -suX;
     summaryX += suX;
     summaryGoRight = false;
   }
-  else if (summaryX < 600) {
+  else if (suHooked == false && summaryX < 600) {
     suX = -suX;
     summaryX += suX;
     summaryGoRight = true;
   }
-  else if (summaryY > 510 || summaryY < 370) {
+  else if (suHooked == false && summaryY > 510 || summaryY < 370) {
     suY = -suY;
     summaryY += suY;
   }
 
   //Move PROJECTS Fish
-  if (projectsX <= 900 && projectsX >= 740 && projectsY <= 510 && projectsY >= 370){
+  if (prHooked == false && projectsX <= 900 && projectsX >= 740 && projectsY <= 510 && projectsY >= 370){
     projectsX += prX;
     projectsY += prY;
   }
-  else if (projectsX > 900) {
+  else if (prHooked == false && projectsX > 900) {
     prX = -prX;
     projectsX += prX;
     projectsGoRight = false;
   }
-  else if (projectsX < 740) {
+  else if (prHooked == false && projectsX < 740) {
     prX = -prX;
     projectsX += prX;
     projectsGoRight = true;
   }
-  else if (projectsY > 510 || projectsY < 370) {
+  else if (prHooked == false && projectsY > 510 || projectsY < 370) {
     prY = -prY;
     projectsY += prY;
   }
 
   //Move LINKS Fish
-  if (linksX <= 1100 && linksX >= 890 && linksY <= 510 && linksY >= 370){
+  if (liHooked == false && linksX <= 1100 && linksX >= 890 && linksY <= 510 && linksY >= 370){
     linksX += liX;
     linksY += liY;
   }
-  else if (linksX > 1100) {
+  else if (liHooked == false && linksX > 1100) {
     liX = -liX
     linksX += liX;
     linksGoRight = false;
   }
-  else if (linksX < 890) {
+  else if (liHooked == false && linksX < 890) {
     liX = -liX
     linksX += liX;
     linksGoRight = true;
   }
-  else if (linksY > 510 || linksY < 370) {
+  else if (liHooked == false && linksY > 510 || linksY < 370) {
     liY = -liY
     linksY += liY;
   }
@@ -619,21 +714,36 @@ function draw() {
 //HOOK A FISH!
   if (upPressed == true){
     if (hookX >= skillsX && hookX < skillsX + 230 && hookY >= skillsY && hookY < skillsY + 80
-        || hookLeftX >= skillsX && hookLeftX < skillsX + 230 && hookY >= skillsY && hookY < skillsY + 80){
+        || upPressed == true && hookLeftX >= skillsX && hookLeftX < skillsX + 230 && hookY >= skillsY && hookY < skillsY + 80){
       console.log ("skills fish caught");
       skHooked = true;
     }
-
     if (upPressed == true && hookX >= educationX && hookX < educationX + 230 && hookY >= educationY && hookY < educationY + 80
-        || hookLeftX >= educationX && hookLeftX < educationX + 230 && hookY >= educationY && hookY < educationY + 80){
+        || upPressed == true && hookLeftX >= educationX && hookLeftX < educationX + 230 && hookY >= educationY && hookY < educationY + 80){
       console.log ("education fish caught");
       edHooked = true;
     }
-    else if (upPressed == true && hookX >= linksX && hookX < linksX + 230 && hookY >= linksY && hookY < linksY + 80
-        || hookLeftX >= linksX && hookLeftX < linksX + 230 && hookY >= linksY && hookY < linksY + 80){
+    if (upPressed == true && hookX >= experienceX && hookX < experienceX + 230 && hookY >= experienceY && hookY < experienceY + 80
+        || upPressed == true && hookLeftX >= experienceX && hookLeftX < experienceX + 230 && hookY >= experienceY && hookY < experienceY + 80){
+      console.log ("experience fish caught");
+      exHooked = true;
+    }
+    if (upPressed == true && hookX >= summaryX && hookX < summaryX + 230 && hookY >= summaryY && hookY < summaryY + 80
+        || upPressed == true && hookLeftX >= summaryX && hookLeftX < summaryX + 230 && hookY >= summaryY && hookY < summaryY + 80){
+      console.log ("summary fish caught");
+      suHooked = true;
+    }
+    if (upPressed == true && hookX >= projectsX && hookX < projectsX + 230 && hookY >= projectsY && hookY < projectsY + 80
+        || upPressed == true && hookLeftX >= projectsX && hookLeftX < projectsX + 230 && hookY >= projectsY && hookY < projectsY + 80){
+      console.log ("projects fish caught");
+      prHooked = true;
+    }
+    if (upPressed == true && hookX >= linksX && hookX < linksX + 230 && hookY >= linksY && hookY < linksY + 80
+        || upPressed == true && hookLeftX >= linksX && hookLeftX < linksX + 230 && hookY >= linksY && hookY < linksY + 80){
       console.log ("links fish caught");
       liHooked = true;
     }
+
   };
 
 requestAnimationFrame(draw); //sets the interval frame rate to browser automated value
