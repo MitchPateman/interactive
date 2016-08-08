@@ -399,7 +399,7 @@ function draw() {
       skillsY = hookY - 50;
     }
     else if (skillsY < 287.13){
-      alert("SKILLS FISH CAUGHT");
+      alert("SKILLS FISH CAUGHT, THIS WILL SOON BE A MODAL WINDOW WITH INFO");
       skHooked = false;
       upPressed = false;
       skillsX = -30;
@@ -426,7 +426,7 @@ function draw() {
       educationY = hookY - 50;
     }
     else if (educationX < 287.13){
-      alert("EDUCATION FISH CAUGHT");
+      alert("EDUCATION FISH CAUGHT, THIS WILL SOON BE A MODAL WINDOW WITH INFO");
       edHooked = false;
       upPressed = false;
       educationX = 210;
@@ -454,7 +454,7 @@ function draw() {
     }
     else if (experienceY < 287.13){
 
-      alert("EXPERIENCE FISH CAUGHT");
+      alert("EXPERIENCE FISH CAUGHT, THIS WILL SOON BE A MODAL WINDOW WITH INFO");
       exHooked = false;
       upPressed = false;
       experienceX = 380;
@@ -481,7 +481,7 @@ function draw() {
       summaryY = hookY - 50;
     }
     else if (summaryY < 287.13){
-      alert("SUMMARY FISH CAUGHT");
+      alert("SUMMARY FISH CAUGHT, THIS WILL SOON BE A MODAL WINDOW WITH INFO");
       suHooked = false;
       upPressed = false;
       summaryX = 680;
@@ -508,7 +508,7 @@ function draw() {
       projectsY = hookY - 50;
     }
     else if (projectsY < 287.13){
-      alert("PROJECTS FISH CAUGHT");
+      alert("PROJECTS FISH CAUGHT, THIS WILL SOON BE A MODAL WINDOW WITH INFO");
       prHooked = false;
       upPressed = false;
       projectsX = 845;
@@ -535,7 +535,7 @@ function draw() {
       linksY = hookY - 50;
     }
     else if (linksY < 287.13){
-      alert("LINKS FISH CAUGHT");
+      alert("LINKS FISH CAUGHT, THIS WILL SOON BE A MODAL WINDOW WITH INFO");
       liHooked = false;
       upPressed = false;
       linksX = 1010;
