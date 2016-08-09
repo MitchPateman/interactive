@@ -419,8 +419,9 @@ function draw() {
     else if (skillsY < 287.13){
       // alert("SKILLS FISH CAUGHT, THIS WILL SOON BE A MODAL WINDOW WITH INFO");
       if (skHooked == true && skillsY < 287.13) {
+        speed = 0;
         drawSkillsModal();
-        if (spacePressed){
+        if (spacePressed || leftPressed || rightPressed || downPressed){
           upPressed = false;
           skillsX = -30;
           skillsY = 400;
@@ -434,6 +435,7 @@ function draw() {
           };
           spacePressed = false;
           skHooked = false;
+          speed = 4.5;
         };
       };
     };
