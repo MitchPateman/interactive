@@ -209,6 +209,7 @@ function mouseUpHandler(event) {
         rightPressed = false;
         upPressed = false;
         downPressed = false;
+        spacePressed = false;
       };
 };
 
@@ -241,6 +242,7 @@ function touchUpHandler(event) {
         rightPressed = false;
         upPressed = false;
         downPressed = false;
+        spacePressed = false;
       };
 };
 
