@@ -242,7 +242,6 @@ function touchUpHandler(event) {
         rightPressed = false;
         upPressed = false;
         downPressed = false;
-        spacePressed = false;
       };
 };
 
