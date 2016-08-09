@@ -143,6 +143,12 @@ experienceModal.src = 'images/experience_modal.png';
 var summaryModal = document.createElement('img');
 summaryModal.src = 'images/summary_modal.png';
 
+var projectsModal = document.createElement('img');
+projectsModal.src = 'images/projects_modal.png';
+
+var linksModal = document.createElement('img');
+linksModal.src = 'images/links_modal.png';
+
 //Event Listener for Key Up and Down
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -333,6 +339,12 @@ function drawExperienceModal() {
 };
 function drawSummaryModal() {
   ctx.drawImage(summaryModal,canvas.width/4, canvas.height/2.87, educationModal.width/9.4, educationModal.height/9.4)
+};
+function drawProjectsModal() {
+  ctx.drawImage(projectsModal,canvas.width/4, canvas.height/2.87, educationModal.width/9.4, educationModal.height/9.4)
+};
+function drawLinksModal() {
+  ctx.drawImage(linksModal,canvas.width/4, canvas.height/2.87, educationModal.width/9.4, educationModal.height/9.4)
 };
 
 
@@ -562,18 +574,23 @@ function draw() {
       projectsY = hookY - 50;
     }
     else if (projectsY < 287.13){
-      alert("PROJECTS FISH CAUGHT, THIS WILL SOON BE A MODAL WINDOW WITH INFO");
-      prHooked = false;
-      upPressed = false;
-      projectsX = 845;
-      projectsY = 510;
-      if (projectsGoRight == true){
-        prX = 1.2;
-        prY = -0.3;
-      }
-      else {
-        prX = -1.2;
-        prY = 0.3;
+      if (prHooked == true && projectsY < 287.13) {
+        drawProjectsModal();
+        if (spacePressed || leftPressed || rightPressed || downPressed){
+          upPressed = false;
+          projectsX = 845;
+          projectsY = 510;
+          if (projectsGoRight == true){
+            prX = 1.2;
+            prY = -0.3;
+          }
+          else {
+            prX = -1.2;
+            prY = 0.3;
+          };
+          spacePressed = false;
+          prHooked = false;
+        };
       };
     };
   }
@@ -589,21 +606,26 @@ function draw() {
       linksY = hookY - 50;
     }
     else if (linksY < 287.13){
-      alert("LINKS FISH CAUGHT, THIS WILL SOON BE A MODAL WINDOW WITH INFO");
-      liHooked = false;
-      upPressed = false;
-      linksX = 1010;
-      linksY = 450;
-      if (linksGoRight == true){
-        liX = 0.6;
-        liY = 0.3;
-      }
-      else {
-        liX = -0.6;
-        liY = -0.3;
+      if (liHooked == true && linksY < 287.13) {
+        drawLinksModal();
+        if (spacePressed || leftPressed || rightPressed || downPressed){
+          upPressed = false;
+          linksX = 1010;
+          linksY = 450;
+          if (linksGoRight == true){
+            liX = 0.6;
+            liY = 0.3;
+          }
+          else {
+            liX = -0.6;
+            liY = -0.3;
+          };
+          spacePressed = false;
+          liHooked = false;
+        };
       };
     };
-  };
+  }
 
   // MOVE FISH AND SWITCH DIRECTION
   //Skills FISH
