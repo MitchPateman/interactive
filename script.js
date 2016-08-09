@@ -140,6 +140,9 @@ educationModal.src = 'images/education_modal.png';
 var experienceModal = document.createElement('img');
 experienceModal.src = 'images/experience_modal.png';
 
+var summaryModal = document.createElement('img');
+summaryModal.src = 'images/summary_modal.png';
+
 //Event Listener for Key Up and Down
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -320,10 +323,16 @@ function drawLinksFishLeft() {
   ctx.drawImage(linksLeft,linksX,linksY, 210, 110);
 };
 function drawSkillsModal() {
-  ctx.drawImage(skillsModal,canvas.width/4, canvas.height/2.9, skillsModal.width/9.4, skillsModal.height/9.4)
+  ctx.drawImage(skillsModal,canvas.width/4, canvas.height/2.87, skillsModal.width/9.4, skillsModal.height/9.4)
 };
 function drawEducationModal() {
-  ctx.drawImage(educationModal,canvas.width/4, canvas.height/2.9, educationModal.width/9.4, educationModal.height/9.4)
+  ctx.drawImage(educationModal,canvas.width/4, canvas.height/2.87, educationModal.width/9.4, educationModal.height/9.4)
+};
+function drawExperienceModal() {
+  ctx.drawImage(experienceModal,canvas.width/4, canvas.height/2.87, educationModal.width/9.4, educationModal.height/9.4)
+};
+function drawSummaryModal() {
+  ctx.drawImage(summaryModal,canvas.width/4, canvas.height/2.87, educationModal.width/9.4, educationModal.height/9.4)
 };
 
 
@@ -489,19 +498,23 @@ function draw() {
       experienceY = hookY - 50;
     }
     else if (experienceY < 287.13){
-
-      alert("EXPERIENCE FISH CAUGHT, THIS WILL SOON BE A MODAL WINDOW WITH INFO");
-      exHooked = false;
-      upPressed = false;
-      experienceX = 380;
-      experienceY = 440;
-      if (experienceGoRight == true){
-        exX = 0.25;
-        exY = 0.4;
-      }
-      else {
-        exX = -0.5;
-        exY = -0.4;
+      if (exHooked == true && experienceY < 287.13) {
+        drawExperienceModal();
+        if (spacePressed || leftPressed || rightPressed || downPressed){
+          upPressed = false;
+          experienceX = 380;
+          experienceY = 440;
+          if (experienceGoRight == true){
+            exX = 0.25;
+            exY = 0.4;
+          }
+          else {
+            exX = -0.5;
+            exY = -0.4;
+          };
+          spacePressed = false;
+          exHooked = false;
+        };
       };
     };
   }
@@ -517,18 +530,23 @@ function draw() {
       summaryY = hookY - 50;
     }
     else if (summaryY < 287.13){
-      alert("SUMMARY FISH CAUGHT, THIS WILL SOON BE A MODAL WINDOW WITH INFO");
-      suHooked = false;
-      upPressed = false;
-      summaryX = 680;
-      summaryY = 370;
-      if (summaryGoRight == true){
-        suX = 0.275;
-        suY = 0.17;
-      }
-      else {
-        suX = -0.275;
-        suY = -0.17;
+      if (suHooked == true && summaryY < 287.13) {
+        drawSummaryModal();
+        if (spacePressed || leftPressed || rightPressed || downPressed){
+          upPressed = false;
+          summaryX = 680;
+          summaryY = 370;
+          if (summaryGoRight == true){
+            suX = 0.275;
+            suY = 0.17;
+          }
+          else {
+            suX = -0.275;
+            suY = -0.17;
+          };
+          spacePressed = false;
+          suHooked = false;
+        };
       };
     };
   }
