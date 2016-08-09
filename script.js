@@ -194,6 +194,9 @@ function mouseDownHandler(event) {
       }
       else if (clickX > upDownArrowX && clickY > downArrowY) {
         downPressed = true;
+      }
+      else if (clickX > 950 && clickX < 1080 && clickY < 380 && clickY > 280) {
+        spacePressed = true;
       };
 };
 
