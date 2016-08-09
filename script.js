@@ -433,12 +433,10 @@ function draw() {
             skX = -0.85;
             skY = -0.2;
           };
-          skHooked = false;
           spacePressed = false;
+          skHooked = false;
         };
       };
-
-
     };
   }
   else if (edHooked == true){
