@@ -227,6 +227,9 @@ function touchDownHandler(event) {
       }
       else if (touchX > upDownArrowX && touchY > downArrowY) {
         downPressed = true;
+      }
+      else if (touchX > 950 && touchX < 1080 && touchY < 380 && touchY > 280) {
+        spacePressed = true;
       };
 };
 
