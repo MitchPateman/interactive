@@ -284,7 +284,7 @@ function drawtopBar() {
   ctx.drawImage(topBar,540,-110,800,210);
 };
 function drawBottomBar() {
-  ctx.drawImage(bottomBar,300,510,800,210);
+  ctx.drawImage(bottomBar,300,630,800,100);
 };
 //drawLine functions (x, y are relative to boat)
 function drawLine() {
