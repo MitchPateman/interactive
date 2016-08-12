@@ -238,6 +238,13 @@ function mouseDownHandler(event) {
           window.location = "https://bitmakerhq.s3.amazonaws.com/alexa/production/student/resume/1077/mitch_pateman_resume_FINAL.pdf";
           console.log("pdfPressed");
         };
+      }
+
+      else if (prHooked == true && projectsY < 287.13) {
+        if (clickX > 462 && clickX < 692 && clickY > 402 && clickY < 606) {
+          //window.location = "http://www.hitchr.ca";
+          console.log("hitchrPressed");
+        }
       };
 };
 
