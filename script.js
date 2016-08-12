@@ -329,22 +329,22 @@ function drawLinksFishLeft() {
   ctx.drawImage(linksLeft,linksX,linksY, 210, 110);
 };
 function drawSkillsModal() {
-  ctx.drawImage(skillsModal,canvas.width/4, canvas.height/2.87, skillsModal.width/9.4, skillsModal.height/9.4)
+  ctx.drawImage(skillsModal,canvas.width/4, canvas.height/2.83, skillsModal.width/9.8, skillsModal.height/9.8)
 };
 function drawEducationModal() {
-  ctx.drawImage(educationModal,canvas.width/4, canvas.height/2.87, educationModal.width/9.4, educationModal.height/9.4)
+  ctx.drawImage(educationModal,canvas.width/4, canvas.height/2.83, educationModal.width/9.8, educationModal.height/9.8)
 };
 function drawExperienceModal() {
-  ctx.drawImage(experienceModal,canvas.width/4, canvas.height/2.87, educationModal.width/9.4, educationModal.height/9.4)
+  ctx.drawImage(experienceModal,canvas.width/4, canvas.height/2.83, educationModal.width/9.8, educationModal.height/9.8)
 };
 function drawSummaryModal() {
-  ctx.drawImage(summaryModal,canvas.width/4, canvas.height/2.87, educationModal.width/9.4, educationModal.height/9.4)
+  ctx.drawImage(summaryModal,canvas.width/4, canvas.height/2.83, educationModal.width/9.8, educationModal.height/9.8)
 };
 function drawProjectsModal() {
-  ctx.drawImage(projectsModal,canvas.width/4, canvas.height/2.87, educationModal.width/9.4, educationModal.height/9.4)
+  ctx.drawImage(projectsModal,canvas.width/4, canvas.height/2.83, educationModal.width/9.8, educationModal.height/9.8)
 };
 function drawLinksModal() {
-  ctx.drawImage(linksModal,canvas.width/4, canvas.height/2.87, educationModal.width/9.4, educationModal.height/9.4)
+  ctx.drawImage(linksModal,canvas.width/4, canvas.height/2.83, educationModal.width/9.8, educationModal.height/9.8)
 };
 
 
