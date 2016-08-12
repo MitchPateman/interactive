@@ -153,8 +153,8 @@ var linksModal = document.createElement('img');
 linksModal.src = 'images/links_modal.png';
 
 //Event Listener for Key Up and Down
-window.addEventListener("keydown", keyDownHandler, false);
-window.addEventListener("keyup", keyUpHandler, false);
+window.addEventListener("keydown", keyDownHandler,this.check, false);
+window.addEventListener("keyup", keyUpHandler,this.check, false);
 canvas.addEventListener("mousedown", mouseDownHandler, false);
 canvas.addEventListener("mouseup", mouseUpHandler, false);
 canvas.addEventListener("touchstart", touchDownHandler, false);
