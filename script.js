@@ -395,7 +395,7 @@ function drawLinksModal() {
 
 //MAIN DRAW FUNCTION
 function draw() {
-  canvas.click;
+  canvas.tabIndex = 0;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawLeftArrow();
   drawRightArrow();
