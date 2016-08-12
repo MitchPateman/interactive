@@ -219,35 +219,29 @@ function mouseDownHandler(event) {
       //ELSE IF LINKS FISH IS CAUGHT AND LINK IS PRESSED x 5
       else if (liHooked == true && linksY < 287.13) {
         if (clickX > 533 && clickX < 602 && clickY > 308 && clickY < 378) {
-          //window.location = "http://linkedin.com/in/MitchellPateman";
           window.open('http://linkedin.com/in/MitchellPateman', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
           console.log("linkedInPressed");
         }
         else if (clickX > 533 && clickX < 602 && clickY > 390 && clickY < 456) {
-          // window.location = "http://twitter.com/MitchPateman";
           window.open('http://twitter.com/MitchPateman', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
           console.log("twitterPressed");
         }
         else if (clickX > 533 && clickX < 602 && clickY > 468 && clickY < 533) {
-          //window.location = "http://www.github.com/MitchPateman";
           window.open('http://www.github.com/MitchPateman', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
           console.log("githubPressed");
         }
         else if (clickX > 533 && clickX < 602 && clickY > 543 && clickY < 611) {
-          // window.location = "mailto:mitchell.pateman@gmail.com";
           window.open('mailto:mitchell.pateman@gmail.com', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
           console.log("emailPressed");
         }
         else if (clickX > 533 && clickX < 602 && clickY > 619 && clickY < 692) {
-          // window.location = "https://bitmakerhq.s3.amazonaws.com/alexa/production/student/resume/1077/mitch_pateman_resume_FINAL.pdf";
           window.open('https://bitmakerhq.s3.amazonaws.com/alexa/production/student/resume/1077/mitch_pateman_resume_FINAL.pdf', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
           console.log("pdfPressed");
         };
       }
-
       else if (prHooked == true && projectsY < 287.13) {
         if (clickX > 462 && clickX < 692 && clickY > 402 && clickY < 606) {
-          //window.location = "http://www.hitchr.ca";
+          window.open('http://hitchr.ca/', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
           console.log("hitchrPressed");
         }
       };
