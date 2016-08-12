@@ -246,10 +246,18 @@ function mouseDownHandler(event) {
         };
       }
       else if (prHooked == true && projectsY < 287.13) {
-        if (clickX > 462 && clickX < 692 && clickY > 402 && clickY < 606) {
+        if (clickX > 462&& clickX < 692 && clickY > 402 && clickY < 606) {
           window.open('http://hitchr.ca/', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
           console.log("hitchrPressed");
         }
+        else if (clickX > 743 && clickX < 974 && clickY > 376 && clickY < 504) {
+          window.open('https://github.com/MitchPateman/crowd_funder', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
+          console.log("crowdFunderPressed");
+        }
+        else if (clickX > 743 && clickX < 974 && clickY > 524 && clickY < 625) {
+          window.open('https://github.com/MitchPateman/seat_yourself', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
+          console.log("seatYourselfPressed");
+        };
       };
 };
 
