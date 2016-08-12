@@ -74,6 +74,9 @@ var liHooked = false;
 
 
 //Load Images
+var topBar = document.createElement('img');
+topBar.src = 'images/top_bar_fishing.png'
+
 var bottomBar = document.createElement('img');
 bottomBar.src = 'images/bottom_bar_fishing.png'
 
@@ -212,6 +215,11 @@ function mouseDownHandler(event) {
       else if (clickX > 950 && clickX < 1120 && clickY < 380 && clickY > 260) {
         spacePressed = true;
       };
+
+      //ELSE IF LINKS FISH IS CAUGHT AND LINK IS PRESSED x 5
+      //else if (liHooked == true && linksY < 287.13) {
+
+
 };
 
 function mouseUpHandler(event) {
@@ -246,6 +254,10 @@ function touchDownHandler(event) {
       else if (touchX > 950 && touchX < 1120 && touchY < 380 && touchY > 260) {
         spacePressed = true;
       };
+
+      //ELSE IF(LINKS FISH CAUGHT AND LINKS PRESSED x 5)
+      //else if (liHooked == true && linksY < 287.13) {
+
 };
 
 function touchUpHandler(event) {
@@ -268,8 +280,11 @@ function drawBoat() {
 function drawBoatLeft() {
   ctx.drawImage(boatLeft,x,y);
 };
+function drawtopBar() {
+  ctx.drawImage(topBar,540,-110,800,210);
+};
 function drawBottomBar() {
-  ctx.drawImage(bottomBar,540,-110,800,210);
+  ctx.drawImage(bottomBar,300,510,800,210);
 };
 //drawLine functions (x, y are relative to boat)
 function drawLine() {
@@ -357,6 +372,7 @@ function draw() {
   drawRightArrow();
   drawUpArrow();
   drawDownArrow();
+  drawtopBar();
   drawBottomBar();
 
 
@@ -606,6 +622,9 @@ function draw() {
       linksY = hookY - 50;
     }
     else if (linksY < 287.13){
+
+      //if linksPressed linkTo webpage!
+
       if (liHooked == true && linksY < 287.13) {
         drawLinksModal();
         if (spacePressed || leftPressed || rightPressed || downPressed){
