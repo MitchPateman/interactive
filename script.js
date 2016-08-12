@@ -6,6 +6,7 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 document.getElementById('myCanvas').focus();
 
+
 //Boat Variables
 var x = canvas.width/20; //define x and y starting point of boat
 var y = canvas.height/10.2;
