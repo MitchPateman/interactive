@@ -152,7 +152,7 @@ projectsModal.src = 'images/projects_modal.png';
 var linksModal = document.createElement('img');
 linksModal.src = 'images/links_modal.png';
 
-//Event Listener for Key Up and Down 
+//Event Listener for Key Up and Down
 window.addEventListener("keydown", keyDownHandler, false);
 window.addEventListener("keyup", keyUpHandler, false);
 canvas.addEventListener("mousedown", mouseDownHandler, false);
@@ -165,15 +165,19 @@ canvas.addEventListener("touchend", touchUpHandler, false);
 function keyDownHandler(e) {
   if(e.keyCode == 39) {  //right arrow key
       rightPressed = true;
+      console.log("keypressed");
   }
   else if(e.keyCode == 37) {  //left arrow key
       leftPressed = true;
+      console.log("keypressed");
   }
   else if(e.keyCode == 40) {  //down arrow key
       downPressed = true;
+      console.log("keypressed");
   }
   else if(e.keyCode == 38) {  //up arrow key
       upPressed = true;
+      console.log("keypressed");
   }
   else if(e.keyCode == 32){
       spacePressed = true;
