@@ -224,23 +224,23 @@ function mouseDownHandler(event) {
 
       //ELSE IF LINKS FISH IS CAUGHT AND LINK IS PRESSED x 5
       else if (liHooked == true && linksY < 287.13) {
-        if (clickX > 533 && clickX < 602 && clickY > 308 && clickY < 378) {
+        if (clickX > 533 && clickX < 820 && clickY > 308 && clickY < 378) {
           window.open('http://linkedin.com/in/MitchellPateman', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
           console.log("linkedInPressed");
         }
-        else if (clickX > 533 && clickX < 602 && clickY > 390 && clickY < 456) {
+        else if (clickX > 533 && clickX < 793 && clickY > 390 && clickY < 456) {
           window.open('http://twitter.com/MitchPateman', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
           console.log("twitterPressed");
         }
-        else if (clickX > 533 && clickX < 602 && clickY > 468 && clickY < 533) {
+        else if (clickX > 533 && clickX < 881 && clickY > 468 && clickY < 533) {
           window.open('http://www.github.com/MitchPateman', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
           console.log("githubPressed");
         }
-        else if (clickX > 533 && clickX < 602 && clickY > 543 && clickY < 611) {
+        else if (clickX > 533 && clickX < 911 && clickY > 543 && clickY < 611) {
           window.open('mailto:mitchell.pateman@gmail.com', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
           console.log("emailPressed");
         }
-        else if (clickX > 533 && clickX < 602 && clickY > 619 && clickY < 692) {
+        else if (clickX > 533 && clickX < 778 && clickY > 619 && clickY < 692) {
           window.open('https://bitmakerhq.s3.amazonaws.com/alexa/production/student/resume/1077/mitch_pateman_resume_FINAL.pdf', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
           console.log("pdfPressed");
         };
