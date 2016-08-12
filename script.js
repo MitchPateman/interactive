@@ -152,7 +152,7 @@ projectsModal.src = 'images/projects_modal.png';
 var linksModal = document.createElement('img');
 linksModal.src = 'images/links_modal.png';
 
-//Event Listener for Key Up and Down
+//Event Listener for Key Up and Down 
 window.addEventListener("keydown", keyDownHandler, false);
 window.addEventListener("keyup", keyUpHandler, false);
 canvas.addEventListener("mousedown", mouseDownHandler, false);
