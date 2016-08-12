@@ -219,23 +219,23 @@ function mouseDownHandler(event) {
       //ELSE IF LINKS FISH IS CAUGHT AND LINK IS PRESSED x 5
       else if (liHooked == true && linksY < 287.13) {
         if (clickX > 533 && clickX < 602 && clickY > 308 && clickY < 378) {
-          window.location = "http://www.linkedin.com/in/MitchellPateman";
+          window.location.assign = "http://www.linkedin.com/in/MitchellPateman";
           console.log("linkedInPressed");
         }
         else if (clickX > 533 && clickX < 602 && clickY > 390 && clickY < 456) {
-          window.location = 'http://www.twitter.com/MitchPateman';
+          window.location.assign = 'http://www.twitter.com/MitchPateman';
           console.log("twitterPressed");
         }
         else if (clickX > 533 && clickX < 602 && clickY > 468 && clickY < 533) {
-          window.location = 'http://www.github.com/MitchPateman';
+          window.location.assign = 'http://www.github.com/MitchPateman';
           console.log("githubPressed");
         }
         else if (clickX > 533 && clickX < 602 && clickY > 543 && clickY < 611) {
-          window.location = "mailto:mitchell.pateman@gmail.com";
+          window.location.assign = "mailto:mitchell.pateman@gmail.com";
           console.log("emailPressed");
         }
         else if (clickX > 533 && clickX < 602 && clickY > 619 && clickY < 692) {
-        window.location = "https://bitmakerhq.s3.amazonaws.com/alexa/production/student/resume/1077/mitch_pateman_resume_FINAL.pdf";
+        window.location.assign = "https://bitmakerhq.s3.amazonaws.com/alexa/production/student/resume/1077/mitch_pateman_resume_FINAL.pdf";
           console.log("pdfPressed");
         }
 
