@@ -5,13 +5,9 @@
 window.addEventListener('orientationchange', function (evt) {
   function updateOrientation(){
     switch(window.orientation){
-      case 0:
-      break;
       case -90:
       break;
       case 90:
-      break;
-      case 180:
       break;
     }
   }
