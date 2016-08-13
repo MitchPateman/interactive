@@ -221,6 +221,10 @@ function mouseDownHandler(event) {
       else if (clickX > 950 && clickX < 1120 && clickY < 380 && clickY > 260) {
         spacePressed = true;
       }
+      else if (clickX > 993 && clickX < 1304 && clickY > 10 && clickY < 71) {
+        window.open('https://bitmakerhq.s3.amazonaws.com/alexa/production/student/resume/1077/mitch_pateman_resume_FINAL.pdf', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
+        console.log("pdfPressed");
+      }
 
       //ELSE IF LINKS FISH IS CAUGHT AND LINK IS PRESSED x 5
       else if (liHooked == true && linksY < 287.13) {
