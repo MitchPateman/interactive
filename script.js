@@ -1,18 +1,6 @@
 //Javascript
 // ****** THIS NEEDS MAJOR REFACTORING ******
 
-//Orientation Event
-window.addEventListener('orientationchange', function (evt) {
-  function updateOrientation(){
-    switch(window.orientation){
-      case -90:
-      break;
-      case 90:
-      break;
-    }
-  }
-},false);
-
 //canvas Variables
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
