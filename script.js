@@ -1,6 +1,22 @@
 //Javascript
 // ****** THIS NEEDS MAJOR REFACTORING ******
 
+//Orientation Event
+window.addEventListener('orientationchange', function (evt) {
+  function updateOrientation(){
+    switch(window.orientation){
+      case 0:
+      break;
+      case -90:
+      break;
+      case 90:
+      break;
+      case 180:
+      break;
+    }
+  }
+},false);
+
 //canvas Variables
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
@@ -64,7 +80,7 @@ var suHooked = false;
 var projectsX = 845;
 var projectsY = 510;
 var projectsGoRight = true;
-var prX = 1.2;
+var prX = 1;
 var prY = -0.3;
 var prHooked = false;
 var linksX = 1010;
@@ -251,11 +267,11 @@ function mouseDownHandler(event) {
           console.log("hitchrPressed");
         }
         else if (clickX > 743 && clickX < 974 && clickY > 376 && clickY < 504) {
-          window.open('https://github.com/MitchPateman/crowd_funder', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
+          window.open('https://ancient-waters-89438.herokuapp.com/', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
           console.log("crowdFunderPressed");
         }
         else if (clickX > 743 && clickX < 974 && clickY > 524 && clickY < 625) {
-          window.open('https://github.com/MitchPateman/seat_yourself', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
+          window.open('http://tranquil-reaches-49678.herokuapp.com/', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
           console.log("seatYourselfPressed");
         };
       };
@@ -636,11 +652,11 @@ function draw() {
           projectsX = 845;
           projectsY = 510;
           if (projectsGoRight == true){
-            prX = 1.2;
+            prX = 1;
             prY = -0.3;
           }
           else {
-            prX = -1.2;
+            prX = -1;
             prY = 0.3;
           };
           spacePressed = false;
@@ -747,16 +763,16 @@ function draw() {
   };
 
   //Move SUMMARY Fish
-  if (suHooked == false && summaryX <= 750 && summaryX >= 550 && summaryY <= 510 && summaryY >= 370){
+  if (suHooked == false && summaryX <= 680 && summaryX >= 580 && summaryY <= 510 && summaryY >= 370){
     summaryX += suX;
     summaryY += suY;
   }
-  else if (suHooked == false && summaryX > 750) {
+  else if (suHooked == false && summaryX > 680) {
     suX = -suX;
     summaryX += suX;
     summaryGoRight = false;
   }
-  else if (suHooked == false && summaryX < 550) {
+  else if (suHooked == false && summaryX < 580) {
     suX = -suX;
     summaryX += suX;
     summaryGoRight = true;
@@ -767,16 +783,16 @@ function draw() {
   };
 
   //Move PROJECTS Fish
-  if (prHooked == false && projectsX <= 900 && projectsX >= 740 && projectsY <= 510 && projectsY >= 370){
+  if (prHooked == false && projectsX <= 860 && projectsX >= 750 && projectsY <= 510 && projectsY >= 370){
     projectsX += prX;
     projectsY += prY;
   }
-  else if (prHooked == false && projectsX > 900) {
+  else if (prHooked == false && projectsX > 860) {
     prX = -prX;
     projectsX += prX;
     projectsGoRight = false;
   }
-  else if (prHooked == false && projectsX < 740) {
+  else if (prHooked == false && projectsX < 750) {
     prX = -prX;
     projectsX += prX;
     projectsGoRight = true;
@@ -787,7 +803,7 @@ function draw() {
   };
 
   //Move LINKS Fish
-  if (liHooked == false && linksX <= 1100 && linksX >= 890 && linksY <= 510 && linksY >= 370){
+  if (liHooked == false && linksX <= 1100 && linksX >= 990 && linksY <= 510 && linksY >= 370){
     linksX += liX;
     linksY += liY;
   }
@@ -796,7 +812,7 @@ function draw() {
     linksX += liX;
     linksGoRight = false;
   }
-  else if (liHooked == false && linksX < 890) {
+  else if (liHooked == false && linksX < 990) {
     liX = -liX
     linksX += liX;
     linksGoRight = true;
