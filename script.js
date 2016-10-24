@@ -245,7 +245,7 @@ function mouseDownHandler(event) {
           console.log("emailPressed");
         }
         else if (clickX > 533 && clickX < 778 && clickY > 619 && clickY < 692) {
-          window.open('https://bitmakerhq.s3.amazonaws.com/alexa/production/student/resume/1077/mitch_pateman_resume_FINAL.pdf', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
+          window.open('https://bitmakerhq.s3.amazonaws.com/alexa/production/student/resume/1077/mitch_pateman_resume_NEW.pdf', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
           console.log("pdfPressed");
         };
       }
