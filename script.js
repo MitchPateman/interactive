@@ -222,7 +222,7 @@ function mouseDownHandler(event) {
         spacePressed = true;
       }
       else if (clickX > 993 && clickX < 1304 && clickY > 10 && clickY < 71) {
-        window.open('https://bitmakerhq.s3.amazonaws.com/alexa/production/student/resume/1077/mitch_pateman_resume_FINAL.pdf', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
+        window.open('https://bitmakerhq.s3.amazonaws.com/alexa/production/student/resume/1077/mitch_pateman_resume_NEW.pdf', '_blank', 'toolbar=yes, location=yes, status=yes, menubar=yes, scrollbars=yes');
         console.log("pdfPressed");
       }
 
